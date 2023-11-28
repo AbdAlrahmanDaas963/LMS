@@ -1,11 +1,19 @@
 :root {
+  --dim-black: #0c0910;
+  --black: #0c0c12;
+  --blue: #3939aa;
+  --yellow: #ffcf00;
+  --white: #e9dcc1;
+}
+
+:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--white);
+  background-color: var(--black);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,12 +24,12 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--blue);
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #535bf2;
+  color: var(--white);
 }
 
 body {
@@ -42,13 +50,13 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--dim-black);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
 button:hover {
-  border-color: #646cff;
+  border-color: var(--black);
 }
 
 button:focus,
