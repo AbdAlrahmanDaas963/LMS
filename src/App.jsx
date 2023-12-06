@@ -8,6 +8,7 @@ import {
   HomePage,
   LandingPage,
   LoginPage,
+  SignupPage,
 } from "./pages";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Nav from "./components/layout/Nav";
@@ -19,12 +20,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Nav user={user} setUser={setUser} />
+      {/* <Nav user={user} setUser={setUser} /> */}
 
       <Routes>
         <Route index element={<LandingPage />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
 
         <Route element={<ProtectedRoute isAllowed={!!user} />}>
           <Route path="/home" element={<HomePage />} />

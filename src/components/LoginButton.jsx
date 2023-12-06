@@ -52,7 +52,7 @@ export default function LoginButton({ user, setUser }) {
       {!user && (
         <div>
           <button
-            className={userLogged?.id === 1 && "active"}
+            // className={userLogged?.id === 1 && "active"}
             onClick={() => {
               setUserLogged(USER_DUMMY1);
             }}
@@ -60,19 +60,19 @@ export default function LoginButton({ user, setUser }) {
             Admin
           </button>
           <button
-            className={userLogged?.id === 2 && "active"}
+            // className={userLogged?.id === 2 && "active"}
             onClick={() => setUserLogged(USER_DUMMY2)}
           >
             User 2
           </button>
           <button
-            className={userLogged?.id === 3 && "active"}
+            // className={userLogged?.id === 3 && "active"}
             onClick={() => setUserLogged(USER_DUMMY3)}
           >
             User 3
           </button>
           <button
-            className={userLogged?.id === 4 && "active"}
+            // className={userLogged?.id === 4 && "active"}
             onClick={() => setUserLogged(USER_DUMMY4)}
           >
             guest

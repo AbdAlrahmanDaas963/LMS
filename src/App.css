@@ -1,7 +1,4 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -19,7 +16,7 @@ ul li {
 }
 
 .active {
-  color: lime
+  color: lime;
 }
 
 @media screen and (max-width: 768px) {

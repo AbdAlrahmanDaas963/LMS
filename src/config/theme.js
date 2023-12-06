@@ -1,6 +1,10 @@
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
+  direction: "rtl",
+  typography: {
+    fontFamily: "'DroidKufi', sans-serif",
+  },
   palette: {
     dimblack: {
       main: "#0C0910",
