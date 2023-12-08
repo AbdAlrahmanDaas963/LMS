@@ -19,6 +19,7 @@ import { withFormik } from "formik";
 import * as yup from "yup";
 
 import aust from "../../assets/svg/aust.svg";
+import books from "../../assets/svg/background.svg";
 
 const form = (props) => {
   const {
@@ -41,11 +42,11 @@ const form = (props) => {
         width: "100vw",
         height: "100vh",
         flexDirection: "row",
-        backgroundColor: theme.palette.white.main,
+        backgroundColor: "#EAE9EA",
       }}
     >
-      <Grid xs={0} sm={4} md={6}>
-        books
+      <Grid xs={0} sm={4} md={6} sx={{ height: "100%", overflow: "hidden" }}>
+        <img src={books} alt="" height={"100%"} />
       </Grid>
 
       <Grid
@@ -57,7 +58,7 @@ const form = (props) => {
           justifyContent: "center",
           flexDirection: "column",
           alignItems: "center",
-          border: "1px solid blue",
+          // border: "1px solid blue",
           backgroundColor: "#fff",
         }}
       >
@@ -119,12 +120,23 @@ const form = (props) => {
                 alignItems={"center"}
                 justifyContent={"center"}
               >
-                <Button type="submit" color="primary" disabled={isSubmitting}>
-                  SUBMIT
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{
+                    backgroundColor: theme.palette.black.main,
+                    width: "100%",
+                    height: "50px",
+                    borderRadius: 15,
+                    marginTop: "10px",
+                  }}
+                  disabled={isSubmitting}
+                >
+                  تسجيل دخول
                 </Button>
-                <Button color="secondary" onClick={handleReset}>
+                {/* <Button color="secondary" onClick={handleReset}>
                   CLEAR
-                </Button>
+                </Button> */}
               </Stack>
             </CardActions>
           </Card>
