@@ -6,29 +6,41 @@ function CourseCard({ id, title, desc, more }) {
     <Box
       sx={{
         height: "200px",
-        width: "100%",
+        width: "400px",
+        minWidth: "300px",
         display: "flex",
         flexDirection: "row",
         backgroundColor: "#fff",
+        margin: "10px 0",
       }}
     >
       <img src={placeholder} width={"auto"} height={"100%"} />
       <Stack
         direction={"column"}
         alignItems={"flex-start"}
-        justifyContent={"center"}
-        sx={{ padding: "0 15px" }}
+        justifyContent={"flex-start"}
+        sx={{ padding: "15px", width: "100%", position: "relative" }}
       >
         <Typography sx={{ fontWeight: "bold" }}>
           {title}-{id}
         </Typography>
         <Typography sx={{ opacity: "0.6" }}>{desc}</Typography>
-        <Typography>{more}</Typography>
+        <Typography
+          sx={{
+            width: "150px",
+            overflow: "hidden",
+            whiteSpace: "nowrap",
+            textOverflow: "ellipsis",
+          }}
+        >
+          {more}
+        </Typography>
         <Stack
           direction={"row"}
           alignItems={"flex-end"}
           width={"100%"}
           justifyContent={"flex-end"}
+          sx={{ position: "absolute", left: "0", bottom: "15px" }}
         >
           <Button
             size="small"

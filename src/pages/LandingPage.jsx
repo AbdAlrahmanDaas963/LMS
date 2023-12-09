@@ -105,7 +105,7 @@ function LandingPage() {
     setIsDrawerOpen(false);
   };
   return (
-    <Stack direction={"row"} sx={{ width: "100vw" }}>
+    <Stack direction={"row"} sx={{ width: "100vw", overflowX: "hidden" }}>
       <div
         style={{
           width: isDrawerOpen ? "300px" : "0",
@@ -153,18 +153,26 @@ function LandingPage() {
           </Box>
         </Box>
         <Box sx={{ width: "80%" }}>
-          <Grid container spacing={3}>
+          <Stack
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              width: "100%",
+              flexDirection: "row",
+              justifyContent: "space-around",
+              alignContent: "space-between",
+            }}
+          >
             {cards.map((card, index) => (
-              <Grid item key={index} xs={12} sm={12} md={6} lg={6}>
-                <CourseCard
-                  id={card.id}
-                  desc={card.desc}
-                  more={card.more}
-                  title={card.title}
-                />
-              </Grid>
+              <CourseCard
+                key={index}
+                id={card.id}
+                desc={card.desc}
+                more={card.more}
+                title={card.title}
+              />
             ))}
-          </Grid>
+          </Stack>
         </Box>
       </Stack>
     </Stack>

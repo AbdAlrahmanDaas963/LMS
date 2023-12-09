@@ -30,6 +30,7 @@ const Header = styled.div`
   left: 0;
   top: 0;
   width: 100%;
+  font-weight: bold;
 `;
 
 const Logo = styled.img`
