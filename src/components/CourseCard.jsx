@@ -6,8 +6,8 @@ function CourseCard({ id, title, desc, more }) {
     <Box
       sx={{
         height: "200px",
-        width: "400px",
-        minWidth: "300px",
+        width: "100%",
+        minWidth: "400px",
         display: "flex",
         flexDirection: "row",
         backgroundColor: "#fff",

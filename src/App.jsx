@@ -13,6 +13,11 @@ import {
 import ProtectedRoute from "./components/ProtectedRoute";
 import Nav from "./components/layout/Nav";
 
+import Layout from "./pages/Layout";
+import Profile from "./pages/content/Profile";
+import Courses from "./pages/content/Courses";
+import CourseDetailes from "./pages/content/CourseDetailes";
+
 import "./App.css";
 
 function App() {
@@ -23,7 +28,15 @@ function App() {
       {/* <Nav user={user} setUser={setUser} /> */}
 
       <Routes>
-        <Route index element={<LandingPage />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Courses />} />
+          <Route path="coursedetailes" element={<CourseDetailes />} />
+          <Route path="profile" element={<Profile />} />
+        </Route>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        {/* !!!  */}
+        {/* <Route index element={<LandingPage />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
@@ -63,7 +76,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-        </Route>
+        </Route> */}
       </Routes>
     </BrowserRouter>
   );
