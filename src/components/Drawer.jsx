@@ -76,11 +76,21 @@ const Drawer = ({ isOpen, onClose }) => {
         <Link style={{ color: "white" }} to={"/"}>
           courses
         </Link>
-        <Link style={{ color: "white" }} to={"/coursedetailes"}>
+        {/* <Link style={{ color: "white" }} to={"/coursedetailes"}>
           coursedetailes
-        </Link>
+        </Link> */}
         <Link style={{ color: "white" }} to={"/profile"}>
           profile
+        </Link>
+
+        <Link style={{ color: "white" }} to={"/grades"}>
+          Grades
+        </Link>
+        <Link style={{ color: "white" }} to={"/classes"}>
+          Classes
+        </Link>
+        <Link style={{ color: "white" }} to={"/assignment"}>
+          Assignment
         </Link>
 
         {/* <Option>خيارات</Option> */}

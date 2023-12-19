@@ -1,7 +1,11 @@
 import React from "react";
 import { Stack, Box, Typography, Button } from "@mui/material";
+import { Link } from "react-router-dom";
+
 import placeholder from "../assets/svg/placeholder.svg";
-function CourseCard({ id, title, desc, more }) {
+
+function CourseCard({ id, title, desc, more, courseDetails }) {
+  // console.log("courseDetails :>> ", courseDetails);
   return (
     <Box
       sx={{
@@ -53,17 +57,19 @@ function CourseCard({ id, title, desc, more }) {
           >
             click 1
           </Button>
-          <Button
-            size="small"
-            variant="contained"
-            sx={{
-              marginLeft: "10px",
-              borderRadius: "50px",
-              padding: "0px 16px",
-            }}
-          >
-            click 2
-          </Button>
+          <Link to={`/courses/${id}`} state={{ courseDetails }}>
+            <Button
+              size="small"
+              variant="contained"
+              sx={{
+                marginLeft: "10px",
+                borderRadius: "50px",
+                padding: "0px 16px",
+              }}
+            >
+              open
+            </Button>
+          </Link>
         </Stack>
       </Stack>
     </Box>

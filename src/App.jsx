@@ -17,6 +17,10 @@ import Layout from "./pages/Layout";
 import Profile from "./pages/content/Profile";
 import Courses from "./pages/content/Courses";
 import CourseDetailes from "./pages/content/CourseDetailes";
+import Classes from "./pages/content/Classes";
+import Grades from "./pages/content/Grades";
+import Assignment from "./pages/content/Assignment";
+import AssignmentDetailes from "./pages/content/AssignmentDetailes";
 
 import "./App.css";
 
@@ -30,8 +34,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Courses />} />
-          <Route path="coursedetailes" element={<CourseDetailes />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/courses/:id" element={<CourseDetailes />} />
           <Route path="profile" element={<Profile />} />
+
+          <Route path="classes" element={<Classes />} />
+          <Route path="grades" element={<Grades />} />
+          <Route path="assignment" element={<Assignment />} />
+          <Route path="assignment/:id" element={<AssignmentDetailes />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />

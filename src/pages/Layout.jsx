@@ -13,7 +13,7 @@ const Layout = () => {
       direction={"row"}
     >
       <Drawer isOpen={true} />
-      <div style={{ width: "100%", overflowY: "scroll" }}>
+      <div style={{ width: "100%", overflowY: "auto" }}>
         <Header />
         <div style={{ padding: "20px" }}>
           <Outlet />

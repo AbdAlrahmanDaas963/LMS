@@ -2,6 +2,8 @@ import React from "react";
 import { Stack } from "@mui/material";
 import CourseCard from "../../components/CourseCard";
 
+import data from "../../data/data.json";
+
 function Courses() {
   const cards = [
     {
@@ -79,7 +81,17 @@ function Courses() {
   ];
   return (
     <Stack>
-      {cards.map((card, index) => (
+      {data.courses.map((card, index) => (
+        <CourseCard
+          key={index}
+          id={card.id}
+          desc={card.description}
+          more={card.description}
+          title={card.title}
+          courseDetails={card.courseDetails}
+        />
+      ))}
+      {/* {cards.map((card, index) => (
         <CourseCard
           key={index}
           id={card.id}
@@ -87,7 +99,7 @@ function Courses() {
           more={card.more}
           title={card.title}
         />
-      ))}
+      ))} */}
     </Stack>
   );
 }

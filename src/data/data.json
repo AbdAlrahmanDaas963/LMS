@@ -1,0 +1,70 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "مقدمة في React",
+      "description": "تعلم أساسيات برمجة React.",
+      "courseDetails": {
+        "title": "React Fundamentals",
+        "teacherName": "جون دو",
+        "time": "10:00 صباحًا - 12:00 مساءً",
+        "day": "الاثنين",
+        "lectures": {
+          "practicalLectures": [
+            {
+              "id": 101,
+              "title": "إعداد بيئة React"
+            },
+            {
+              "id": 102,
+              "title": "بناء المكونات"
+            }
+          ],
+          "theoreticalLectures": [
+            {
+              "id": 201,
+              "title": "مقدمة في مفاهيم React"
+            },
+            {
+              "id": 202,
+              "title": "الحالة والخصائص"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 2,
+      "title": "مواضيع متقدمة في React",
+      "description": "استكشاف مفاهيم متقدمة في تطوير React.",
+      "courseDetails": {
+        "title": "تقنيات متقدمة في React",
+        "teacherName": "جين سميث",
+        "time": "2:00 مساءً - 4:00 مساءً",
+        "day": "الأربعاء",
+        "lectures": {
+          "practicalLectures": [
+            {
+              "id": 301,
+              "title": "إدارة الحالة بواسطة Redux"
+            },
+            {
+              "id": 302,
+              "title": "موجه React"
+            }
+          ],
+          "theoreticalLectures": [
+            {
+              "id": 401,
+              "title": "الهوكس في React"
+            },
+            {
+              "id": 402,
+              "title": "تحسين الأداء"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
