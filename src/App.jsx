@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+import { useAuth } from "./utils/authUtils";
+import { USER_ROLES } from "./config/constants";
 
 import {
   AdminPage,
@@ -11,6 +14,7 @@ import {
   SignupPage,
 } from "./pages";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AppProtectedRoute from "./components/AppProtectedRoute";
 import Nav from "./components/layout/Nav";
 
 import Layout from "./pages/Layout";
@@ -23,30 +27,217 @@ import Assignment from "./pages/content/Assignment";
 import AssignmentDetailes from "./pages/content/AssignmentDetailes";
 
 import "./App.css";
+import SigninLayout from "./pages/signin/SigninLayout";
+import CodeCheck from "./pages/signin/content/CodeCheck";
+
+import StudentRoute from "./modules/student/StudentRoute";
+import InstructorRoute from "./modules/instructor/InstructorRoute";
+import AdminRoute from "./modules/admin/AdminRoute";
+
+const PrivateRoute = ({ element, allowedRoles }) => {
+  const { isStudent, isAdmin, isInstructor } = useAuth();
+
+  console.log("isStudent :>> ", isStudent);
+  console.log("isAdmin :>> ", isAdmin);
+  console.log("isInstructor :>> ", isInstructor);
+
+  // if (
+  //   (allowedRoles.includes(USER_ROLES.STUDENT) && isStudent) ||
+  //   (allowedRoles.includes(USER_ROLES.ADMIN) && isAdmin) ||
+  //   (allowedRoles.includes(USER_ROLES.INSTRUCTOR) && isInstructor)
+  // ) {
+  //   return element;
+  // } else {
+  //   return <Navigate to="/login" />;
+  // }
+
+  if (
+    (allowedRoles.includes(USER_ROLES.STUDENT) && true) ||
+    (allowedRoles.includes(USER_ROLES.ADMIN) && true) ||
+    (allowedRoles.includes(USER_ROLES.INSTRUCTOR) && true)
+  ) {
+    return element;
+  } else {
+    return <Navigate to="/login" />;
+  }
+};
 
 function App() {
   const [user, setUser] = useState(null);
 
   return (
     <BrowserRouter>
-      {/* <Nav user={user} setUser={setUser} /> */}
-
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Courses />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/courses/:id" element={<CourseDetailes />} />
-          <Route path="profile" element={<Profile />} />
-
-          <Route path="classes" element={<Classes />} />
-          <Route path="grades" element={<Grades />} />
-          <Route path="assignment" element={<Assignment />} />
-          <Route path="assignment/:id" element={<AssignmentDetailes />} />
-        </Route>
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        {/* !!!  */}
-        {/* <Route index element={<LandingPage />} />
+        <Route
+          path="/student/*"
+          element={
+            <PrivateRoute
+              element={<StudentRoute />}
+              allowedRoles={[USER_ROLES.STUDENT]}
+            />
+          }
+        />
+        <Route
+          path="/admin/*"
+          element={
+            <PrivateRoute
+              element={<AdminRoute />}
+              allowedRoles={[USER_ROLES.ADMIN]}
+            />
+          }
+        />
+        <Route
+          path="/instructor/*"
+          element={
+            <PrivateRoute
+              element={<InstructorRoute />}
+              allowedRoles={[USER_ROLES.INSTRUCTOR]}
+            />
+          }
+        />
+      </Routes>
+
+      {/* <Routes>
+        <Route path="/reg" element={<SigninLayout />}>
+          <Route path="/reg/login" element={<LoginPage />} />
+          <Route path="/reg/signup" element={<SignupPage />} />
+          <Route path="/reg/codecheck" element={<CodeCheck />} />
+        </Route>
+
+        <Route index element={<LandingPage />} />
+        <Route element={<ProtectedRoute isAllowed={!!user} />}>
+          <Route path="/home" element={<HomePage />} />
+          <Route
+            path="/student"
+            element={
+              <ProtectedRoute
+                isAllowed={!!user && user.permissions.includes("dashboard")}
+                // isAllowed={true}
+                redirectTo="/reg/login"
+              >
+                <StudentRoute />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute
+                isAllowed={!!user && user.roles.includes("admin")}
+                redirectTo="/login"
+              >
+                <AdminRoute />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/instructor"
+            element={
+              <ProtectedRoute
+                isAllowed={!!user && user.roles.includes("instructor")}
+                redirectTo="/login"
+              >
+                <InstructorRoute />
+              </ProtectedRoute>
+            }
+          />
+        </Route>
+      </Routes> */}
+
+      {/* <AppProtectedRoute
+        path="/app/student/*"
+        element={<StudentRoute />}
+        roles={["student"]}
+      />
+      <AppProtectedRoute
+        path="/app/instructor/*"
+        element={<InstructorRoute />}
+        roles={["instructor"]}
+      />
+      <AppProtectedRoute
+        path="/app/admin/*"
+        element={<AdminRoute />}
+        roles={["admin"]}
+      /> */}
+
+      {/* <Routes>
+        <Route index element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
+      </Routes> */}
+
+      {/* <Routes>
+        <Route path="/app" element={<Layout />}>
+          <Route path="/app/courses" element={<Courses />} />
+          <Route path="/app/courses/:id" element={<CourseDetailes />} />
+          <Route path="/app/profile" element={<Profile />} />
+
+          <Route path="/app/classes" element={<Classes />} />
+          <Route path="/app/grades" element={<Grades />} />
+          <Route path="/app/assignment" element={<Assignment />} />
+          <Route path="/app/assignment/:id" element={<AssignmentDetailes />} />
+        </Route>
+        <Route path="/reg" element={<SigninLayout />}>
+          <Route path="/reg/login" element={<LoginPage />} />
+          <Route path="/reg/signup" element={<SignupPage />} />
+          <Route path="/reg/codecheck" element={<CodeCheck />} />
+        </Route>
+      </Routes> */}
+
+      {/* <Routes>
+        <Route index element={<LandingPage />} />
+        <Route element={<ProtectedRoute isAllowed={!!user} />}>
+          <Route path="/home" element={<HomePage />} />
+          <Route
+            path="/student"
+            element={
+              <ProtectedRoute
+                isAllowed={!!user && user.permissions.includes("dashboard")}
+                redirectTo="/login"
+              >
+                <StudentRoute />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute
+                isAllowed={!!user && user.roles.includes("admin")}
+                redirectTo="/login"
+              >
+                <AdminRoute />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/instructor"
+            element={
+              <ProtectedRoute
+                isAllowed={!!user && user.roles.includes("instructor")}
+                redirectTo="/login"
+              >
+                <InstructorRoute />
+              </ProtectedRoute>
+            }
+          />
+        </Route>
+      </Routes> */}
+    </BrowserRouter>
+  );
+}
+
+export default App;
+
+{
+  /* !!!  */
+}
+{
+  /* <Nav user={user} setUser={setUser} /> */
+}
+
+{
+  /* <Route index element={<LandingPage />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
@@ -86,10 +277,5 @@ function App() {
               </ProtectedRoute>
             }
           />
-        </Route> */}
-      </Routes>
-    </BrowserRouter>
-  );
+        </Route> */
 }
-
-export default App;

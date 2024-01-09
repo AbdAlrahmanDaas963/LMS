@@ -27,7 +27,7 @@ const Header = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   // position: absolute;
   left: 0;
   top: 0;
@@ -70,26 +70,29 @@ const Drawer = ({ isOpen, onClose }) => {
     <DrawerContainer isopen={isOpen}>
       <Header>
         <Logo src={whiteAust} alt="Logo" width={"50px"} />
-        <div>الرئيسية</div>
+        {/* <div>الرئيسية</div> */}
       </Header>
       <Middle style={{ alignItems: "flex-start" }}>
-        <Link style={{ color: "white" }} to={"/"}>
+        <Link style={{ color: "white", margin: "5px 0" }} to={"/app/courses"}>
           courses
         </Link>
         {/* <Link style={{ color: "white" }} to={"/coursedetailes"}>
           coursedetailes
         </Link> */}
-        <Link style={{ color: "white" }} to={"/profile"}>
+        <Link style={{ color: "white", margin: "5px 0" }} to={"/app/profile"}>
           profile
         </Link>
 
-        <Link style={{ color: "white" }} to={"/grades"}>
+        <Link style={{ color: "white", margin: "5px 0" }} to={"/app/grades"}>
           Grades
         </Link>
-        <Link style={{ color: "white" }} to={"/classes"}>
+        <Link style={{ color: "white", margin: "5px 0" }} to={"/app/classes"}>
           Classes
         </Link>
-        <Link style={{ color: "white" }} to={"/assignment"}>
+        <Link
+          style={{ color: "white", margin: "5px 0" }}
+          to={"/app/assignment"}
+        >
           Assignment
         </Link>
 
@@ -101,7 +104,7 @@ const Drawer = ({ isOpen, onClose }) => {
         <Option>خيارات</Option> */}
       </Middle>
       <Bottom>
-        <Link style={{ color: "white" }} to={"/login"}>
+        <Link style={{ color: "white" }} to={"/reg/login"}>
           تسجيل خروج
         </Link>
         <CloseButton onClick={onClose}>Close</CloseButton>

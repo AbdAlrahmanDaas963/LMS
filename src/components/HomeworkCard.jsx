@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Stack, Button, Typography } from "@mui/material";
 
 function HomeworkCard({ id, title, deadline, assignment, homeworkDetailes }) {
+  const navigate = useNavigate();
+
   return (
     <Stack
       direction={"row"}
@@ -17,9 +19,16 @@ function HomeworkCard({ id, title, deadline, assignment, homeworkDetailes }) {
     >
       <Typography>{title}</Typography>
       <Typography>deadline: {deadline}</Typography>
-      <Link to={`/assignment/${id}`} state={{ assignment }}>
+      {/* <Link to={`/app/assignment/${id}`} state={{ assignment }}>
         <Button>Open</Button>
-      </Link>
+      </Link> */}
+      <Button
+        onClick={() =>
+          navigate(`/app/assignment/${id}`, { state: { assignment } })
+        }
+      >
+        Open
+      </Button>
     </Stack>
   );
 }

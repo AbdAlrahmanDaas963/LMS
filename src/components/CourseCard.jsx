@@ -46,18 +46,7 @@ function CourseCard({ id, title, desc, more, courseDetails }) {
           justifyContent={"flex-end"}
           sx={{ position: "absolute", left: "0", bottom: "15px" }}
         >
-          <Button
-            size="small"
-            variant="contained"
-            sx={{
-              marginLeft: "10px",
-              borderRadius: "50px",
-              padding: "0px 16px",
-            }}
-          >
-            click 1
-          </Button>
-          <Link to={`/courses/${id}`} state={{ courseDetails }}>
+          <Link to={`/app/courses/${id}`} state={{ courseDetails }}>
             <Button
               size="small"
               variant="contained"

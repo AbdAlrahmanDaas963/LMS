@@ -8,7 +8,13 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
-function Header() {
+function Header({ headerData }) {
+  const data = {
+    name: "محمد بزنكو",
+    role: "2016736273",
+    notifications: ["one noti", "second one", "3rd woeoew", "the last one"],
+  };
+  const headerD = headerData ? headerData : data;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -62,9 +68,14 @@ function Header() {
             }}
           >
             <Stack direction={"column"}>
-              <MenuItem onClick={handleClose}>لديك وظيفة جديدة</MenuItem>
+              {headerD.notifications.map((item, index) => (
+                <MenuItem key={index} onClick={handleClose}>
+                  {item}
+                </MenuItem>
+              ))}
+              {/* <MenuItem onClick={handleClose}>لديك وظيفة جديدة</MenuItem>
               <MenuItem onClick={handleClose}>تم تحميل محاضرة جديدة</MenuItem>
-              <MenuItem onClick={handleClose}>تم انشاء الحساب</MenuItem>
+              <MenuItem onClick={handleClose}>تم انشاء الحساب</MenuItem> */}
             </Stack>
           </Menu>
         </div>
@@ -72,8 +83,8 @@ function Header() {
         <Stack direction={"row-reverse"} sx={{ alignItems: "center" }}>
           <AccountCircleIcon fontSize="large" sx={{ marginRight: "10px" }} />
           <Stack direction={"column"}>
-            <Typography>محمد بزنكو</Typography>
-            <Typography>20168122952</Typography>
+            <Typography>{headerD.name}</Typography>
+            <Typography>{headerD.role}</Typography>
           </Stack>
         </Stack>
       </Box>

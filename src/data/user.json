@@ -1,0 +1,50 @@
+[
+  {
+    "name": "John Doe",
+    "studentID": "123456",
+    "college": "Engineering",
+    "year": 2,
+    "status": true,
+    "grades": "80%",
+    "succeedHours": "169/53",
+    "studentImage": "john_doe.jpg",
+    "enrolledCourses": [
+      {
+        "courseName": "Introduction to Computer Science",
+        "courseCode": "CS101",
+        "instructor": "Dr. Smith",
+        "credits": 3
+      },
+      {
+        "courseName": "Linear Algebra",
+        "courseCode": "MATH202",
+        "instructor": "Prof. Johnson",
+        "credits": 4
+      }
+    ]
+  },
+  {
+    "name": "Jane Smith",
+    "studentID": "789012",
+    "college": "Business",
+    "year": 3,
+    "status": false,
+    "grades": "75%",
+    "succeedHours": "150/53",
+    "studentImage": "jane_smith.jpg",
+    "enrolledCourses": [
+      {
+        "courseName": "Marketing Principles",
+        "courseCode": "BUS301",
+        "instructor": "Dr. Brown",
+        "credits": 3
+      },
+      {
+        "courseName": "Financial Accounting",
+        "courseCode": "ACC202",
+        "instructor": "Prof. Miller",
+        "credits": 4
+      }
+    ]
+  }
+]

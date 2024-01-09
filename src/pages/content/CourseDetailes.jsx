@@ -26,27 +26,47 @@ function CourseDetailes() {
       id: 1,
       title: "home1",
       deadline: "21-3-2024",
-      homeworkDetailes: [
-        { pushed: "12-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
-      ],
+      detailes: { pushed: "12-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
     },
     {
       id: 2,
       title: "home2",
       deadline: "21-3-2024",
-      homeworkDetailes: [
-        { pushed: "10-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
-      ],
+      detailes: { pushed: "12-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
     },
     {
       id: 3,
       title: "home3",
       deadline: "21-3-2024",
-      homeworkDetailes: [
-        { pushed: "10-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
-      ],
+      detailes: { pushed: "12-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
     },
   ];
+  // const homework = [
+  //   {
+  //     id: 1,
+  //     title: "home1",
+  //     deadline: "21-3-2024",
+  //     homeworkDetailes: [
+  //       { pushed: "12-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
+  //     ],
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "home2",
+  //     deadline: "21-3-2024",
+  //     homeworkDetailes: [
+  //       { pushed: "10-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
+  //     ],
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "home3",
+  //     deadline: "21-3-2024",
+  //     homeworkDetailes: [
+  //       { pushed: "10-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
+  //     ],
+  //   },
+  // ];
 
   if (!state || !state.courseDetails) {
     return <div>No course details available.</div>;
