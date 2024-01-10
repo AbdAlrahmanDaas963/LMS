@@ -19,7 +19,7 @@ const items = [
   getItem(<Link to={"courses"}>الكورسات</Link>, "2"),
   getItem(<Link to={"assignment"}>الوظائف</Link>, "3"),
   getItem(<Link to={"classes"}>صفوف</Link>, "4"),
-  getItem(<Link to={"grades"}>الاحصائيات</Link>, "5"),
+  getItem(<Link to={"statistics"}>الاحصائيات</Link>, "5"),
 ];
 
 function InstructorLayout() {

@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import { Stack, TextField, Button } from "@mui/material";
+import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import { Stack, TextField, Button, useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,6 +11,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+
+import MyTable from "../../components/MyTable";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -43,6 +47,45 @@ const rows = [
 ];
 
 function Students() {
+  const theme = useTheme();
+  const columns = ["Orange", "Calories", "stu_lastname", "stu_name", "stu_id"];
+  const rows = [
+    {
+      Orange: "Ice cream sandwich",
+      Calories: 159,
+      stu_lastname: "سسس",
+      stu_name: "حسام",
+      stu_id: "1234",
+    },
+    {
+      Orange: "Ice cream sandwich",
+      Calories: 159,
+      stu_lastname: "سسس",
+      stu_name: "حسام",
+      stu_id: "1234",
+    },
+    {
+      Orange: "Ice cream sandwich",
+      Calories: 159,
+      stu_lastname: "سسس",
+      stu_name: "حسام",
+      stu_id: "1234",
+    },
+    {
+      Orange: "Ice cream sandwich",
+      Calories: 159,
+      stu_lastname: "سسس",
+      stu_name: "حسام",
+      stu_id: "1234",
+    },
+    {
+      Orange: "Ice cream sandwich",
+      Calories: 159,
+      stu_lastname: "سسس",
+      stu_name: "حسام",
+      stu_id: "1234",
+    },
+  ];
   return (
     <Stack>
       <Stack
@@ -62,8 +105,19 @@ function Students() {
           تحديث
         </Button>
       </Stack>
+      <Stack alignItems={"center"} sx={{ marginBottom: "20px" }}>
+        <Link to={"profile"}>
+          <Button
+            sx={{ gap: "10px", color: theme.palette.blue.main }}
+            startIcon={<ArrowOutwardIcon />}
+          >
+            حسام سامؤ محمد
+          </Button>
+        </Link>
+      </Stack>
 
-      <TableContainer component={Paper}>
+      <MyTable columns={columns} data={rows} />
+      {/* <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>
@@ -88,7 +142,7 @@ function Students() {
             ))}
           </TableBody>
         </Table>
-      </TableContainer>
+      </TableContainer> */}
     </Stack>
   );
 }

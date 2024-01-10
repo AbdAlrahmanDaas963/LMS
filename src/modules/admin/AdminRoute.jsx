@@ -18,12 +18,14 @@ import Students from "../common/Students";
 import Ps from "./content/Ps";
 import Roles from "./content/Roles";
 import Statistics from "./content/Statistics";
+import StudentProfile from "../common/StudentProfile";
 
 function AdminRoute() {
   return (
     <Routes>
       <Route path="/" element={<AdminLayout />}>
         <Route path="students" element={<Students />} />
+        <Route path="students/profile" element={<StudentProfile />} />
         <Route path="courses" element={<Courses />} />
         <Route path="assignment" element={<Assignment />} />
         <Route path="ps" element={<Ps />} />

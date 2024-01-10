@@ -15,6 +15,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import { useTheme } from "@mui/material";
 
 import aust from "../assets/svg/whiteAust.svg";
 
@@ -22,6 +23,7 @@ const pages = ["اهلين", "محتوى", "نهاية"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function MyAppBar() {
+  const theme = useTheme();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -41,13 +43,20 @@ function MyAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "var(--black)" }}>
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: "#0000",
+        boxShadow: "0",
+        color: theme.palette.blue.main,
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-          <Box sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}>
+          {/* <Box sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}>
             <img src={aust} alt="" width={"50px"} />
-          </Box>
+          </Box> */}
           <Typography
             variant="h6"
             noWrap
@@ -129,14 +138,22 @@ function MyAppBar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "#fff", display: "block" }}
+                sx={{ my: 2, color: theme.palette.blue.main, display: "block" }}
               >
                 {page}
               </Button>
             ))}
           </Box>
-          <Link to={"/app/courses"}>
-            <Button variant="outlined">الذهاب الى التطبيق</Button>
+          <Link to={"/student"}>
+            <Button
+              variant="outlined"
+              sx={{
+                color: theme.palette.blue.main,
+                borderColor: theme.palette.blue.main,
+              }}
+            >
+              الذهاب الى التطبيق
+            </Button>
           </Link>
 
           {/* <Box sx={{ flexGrow: 0 }}>
