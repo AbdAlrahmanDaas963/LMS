@@ -19,6 +19,7 @@ function StudentRoute() {
       <Route path="/" element={<Layout />}>
         <Route path="courses" element={<Courses />} />
         <Route path="courses/:id" element={<CourseDetailes />} />
+        <Route path="coursedetailes" element={<CourseDetailes />} />
         <Route path="profile" element={<Profile />} />
 
         <Route path="classes" element={<Classes />} />

@@ -20,7 +20,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AccordionApp from "../../components/AccordionApp";
 
 function CourseDetailes() {
-  const { state } = useLocation();
+  // const { state } = useLocation();
   const homework = [
     {
       id: 1,
@@ -41,60 +41,42 @@ function CourseDetailes() {
       detailes: { pushed: "12-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
     },
   ];
-  // const homework = [
-  //   {
-  //     id: 1,
-  //     title: "home1",
-  //     deadline: "21-3-2024",
-  //     homeworkDetailes: [
-  //       { pushed: "12-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
-  //     ],
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "home2",
-  //     deadline: "21-3-2024",
-  //     homeworkDetailes: [
-  //       { pushed: "10-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
-  //     ],
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "home3",
-  //     deadline: "21-3-2024",
-  //     homeworkDetailes: [
-  //       { pushed: "10-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
-  //     ],
-  //   },
-  // ];
 
-  if (!state || !state.courseDetails) {
-    return <div>No course details available.</div>;
-  }
+  const data = {
+    title: "React Fundamentals",
+    teacherName: "جون دو",
+    time: "10:00 صباحًا - 12:00 مساءً",
+    day: "الاثنين",
+    lectures: {
+      practicalLectures: [
+        {
+          id: 101,
+          title: "إعداد بيئة React",
+        },
+        {
+          id: 102,
+          title: "بناء المكونات",
+        },
+      ],
+      theoreticalLectures: [
+        {
+          id: 201,
+          title: "مقدمة في مفاهيم React",
+        },
+        {
+          id: 202,
+          title: "الحالة والخصائص",
+        },
+      ],
+    },
+  };
 
-  const { title, teacherName, time, day } = state.courseDetails;
-  console.log("state :>> ", state);
-  // const lectures = [
-  //   {
-  //     title: "Introduction to React",
-  //     theoreticalLectures:
-  //       "This is the content for theoretical lectures on React.",
-  //     practicalLectures: "Practical examples and exercises for React.",
-  //   },
-  //   {
-  //     title: "State and Props",
-  //     theoreticalLectures:
-  //       "In-depth coverage of state and props in React components.",
-  //     practicalLectures: "Hands-on exercises on working with state and props.",
-  //   },
-  //   {
-  //     title: "The last dance",
-  //     theoreticalLectures:
-  //       "In-depth coverage of state and props in React components.",
-  //     practicalLectures: "Hands-on exercises on working with state and props.",
-  //   },
-  //   // Add more lectures as needed
-  // ];
+  // if (!state || !state.courseDetails) {
+  //   return <div>No course details available.</div>;
+  // }
+
+  // const { title, teacherName, time, day } = state.courseDetails;
+  // console.log("state :>> ", state);
 
   const lectures = [
     {
@@ -122,15 +104,34 @@ function CourseDetailes() {
           sx={{ width: "200px", height: "200px", backgroundColor: "#00f" }}
         ></Box>
         <Stack alignItems={"flex-start"} sx={{ padding: "15px" }}>
-          <Typography>{title} #512GTA</Typography>
-          <Typography>{teacherName}</Typography>
-          <Typography>{time}</Typography>
-          <Typography>{day}</Typography>
+          <Typography>مقدمة في React #512GTA</Typography>
+          <Typography>جون دو</Typography>
+          <Typography>10:00 صباحًا - 12:00 مساءً</Typography>
+          <Typography>الاثنين</Typography>
         </Stack>
       </Stack>
       <Stack sx={{ backgroundColor: "#fff", margin: "50px 0" }}>
         <AccordionApp lectures={lectures} />
-        {/* <div
+      </Stack>
+      <Stack>
+        {homework.map((item, index) => (
+          <HomeworkCard
+            key={index}
+            title={item.title}
+            deadline={item.deadline}
+            homeworkDetailes={item.homeworkDetailes}
+            assignment={item}
+          />
+        ))}
+      </Stack>
+    </Stack>
+  );
+}
+
+export default CourseDetailes;
+
+{
+  /* <div
           style={{
             display: "flex",
             flexDirection: "column",
@@ -208,21 +209,76 @@ function CourseDetailes() {
               </AccordionDetails>
             </Accordion>
           </div>
-        </div> */}
-      </Stack>
-      <Stack>
-        {homework.map((item, index) => (
-          <HomeworkCard
-            key={index}
-            title={item.title}
-            deadline={item.deadline}
-            homeworkDetailes={item.homeworkDetailes}
-            assignment={item}
-          />
-        ))}
-      </Stack>
-    </Stack>
-  );
+        </div> */
 }
 
-export default CourseDetailes;
+// const lectures = [
+//   {
+//     title: "Introduction to React",
+//     theoreticalLectures:
+//       "This is the content for theoretical lectures on React.",
+//     practicalLectures: "Practical examples and exercises for React.",
+//   },
+//   {
+//     title: "State and Props",
+//     theoreticalLectures:
+//       "In-depth coverage of state and props in React components.",
+//     practicalLectures: "Hands-on exercises on working with state and props.",
+//   },
+//   {
+//     title: "The last dance",
+//     theoreticalLectures:
+//       "In-depth coverage of state and props in React components.",
+//     practicalLectures: "Hands-on exercises on working with state and props.",
+//   },
+//   // Add more lectures as needed
+// ];
+
+// const lectures = [
+//   {
+//     title: "Introduction to React",
+//     theoreticalLectures:
+//       "This is the content for theoretical lectures on React.",
+//     practicalLectures: "Practical examples and exercises for React.",
+//   },
+//   {
+//     title: "State and Props",
+//     theoreticalLectures:
+//       "In-depth coverage of state and props in React components.",
+//     practicalLectures: "Hands-on exercises on working with state and props.",
+//   },
+//   {
+//     title: "The last dance",
+//     theoreticalLectures:
+//       "In-depth coverage of state and props in React components.",
+//     practicalLectures: "Hands-on exercises on working with state and props.",
+//   },
+//   // Add more lectures as needed
+// ];
+
+// const homework = [
+//   {
+//     id: 1,
+//     title: "home1",
+//     deadline: "21-3-2024",
+//     homeworkDetailes: [
+//       { pushed: "12-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
+//     ],
+//   },
+//   {
+//     id: 2,
+//     title: "home2",
+//     deadline: "21-3-2024",
+//     homeworkDetailes: [
+//       { pushed: "10-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
+//     ],
+//   },
+//   {
+//     id: 3,
+//     title: "home3",
+//     deadline: "21-3-2024",
+//     homeworkDetailes: [
+//       { pushed: "10-3-2024", deadline: "21-3-2024", pdf: "pdfFile" },
+//     ],
+//   },
+// ];
