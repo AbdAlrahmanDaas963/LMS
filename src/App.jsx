@@ -72,7 +72,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<Landing />} />
         <Route path="/animation" element={<AnimatedPage />} />
         <Route path="/animation2" element={<AnimatedPage2 />} />
         <Route path="/landing" element={<Landing />} />
