@@ -17,7 +17,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useTheme } from "@mui/material";
 
-import aust from "../assets/svg/whiteAust.svg";
+import aust from "../assets/svg/aust.svg";
 
 const pages = ["اهلين", "محتوى", "نهاية"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -54,9 +54,9 @@ function MyAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-          {/* <Box sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}>
+          <Box sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}>
             <img src={aust} alt="" width={"50px"} />
-          </Box> */}
+          </Box>
           <Typography
             variant="h6"
             noWrap

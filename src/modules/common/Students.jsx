@@ -16,7 +16,7 @@ import MyTable from "../../components/MyTable";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "#3939aa",
+    backgroundColor: "#1976d2",
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
@@ -101,7 +101,7 @@ function Students() {
           variant="standard"
           sx={{ width: "400px" }}
         />
-        <Button sx={{ backgroundColor: "#3939aa" }} variant="contained">
+        <Button sx={{ backgroundColor: "var(--blue)" }} variant="contained">
           تحديث
         </Button>
       </Stack>

@@ -20,11 +20,11 @@ function HomeworkCard({ id, title, deadline, assignment, homeworkDetailes }) {
       <Typography>{title}</Typography>
       <Typography>deadline: {deadline}</Typography>
       {/* <Link to={`/app/assignment/${id}`} state={{ assignment }}>
-        <Button>Open</Button>
-      </Link> */}
+				<Button>Open</Button>
+			</Link> */}
       <Button
         onClick={() =>
-          navigate(`/app/assignment/${id}`, { state: { assignment } })
+          navigate(`/student/assignment/${id}`, { state: { assignment } })
         }
       >
         Open

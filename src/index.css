@@ -18,9 +18,12 @@ body {
 :root {
   --dim-black: #0c0910;
   --black: #0c0c12;
-  --blue: #3939aa;
-  --yellow: #ffcf00;
+  --blue: #1976d2;
+  /* --blue: #3939aa; */
+  --yellow: #ffd832;
+  /* --yellow: #ffcf00; */
   --white: #eae9ea;
+  --whitesecondary: #595959;
 }
 * {
   padding: 0;
@@ -66,38 +69,48 @@ ul {
   flex-direction: column;
 }
 
-/* button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: var(--dim-black);
-  cursor: pointer;
-  transition: border-color 0.25s;
-} */
-
-/* button:hover {
-  border-color: var(--black);
+.landing-section {
+  width: 100vw;
+  height: 100vh;
+  min-height: 500px;
+}
+.landing-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
+.background-box {
+  position: absolute;
+  height: 30px;
+  width: 70px; /* Adjust as needed */
+  border-radius: 4px;
+  background-color: #efefef;
+  z-index: -1;
+}
 
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
+.floating-btn {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
-} */
+  -webkit-box-shadow: 0px 70px 36px 33px rgba(0, 0, 0, 0.27);
+  box-shadow: 0px 70px 36px 33px rgba(0, 0, 0, 0.27);
+}

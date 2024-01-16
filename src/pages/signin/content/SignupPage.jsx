@@ -49,6 +49,8 @@ const form = (props) => {
         // border: "1px solid blue",
         backgroundColor: "#fff",
         overflowY: "auto",
+        borderRadius: "4px",
+        boxShadow: "4px 4px 10.4px 4px rgba(0, 0, 0, 0.13)",
       }}
     >
       <Stack alignItems={"center"} justifyContent={"center"}>
@@ -60,7 +62,7 @@ const form = (props) => {
             fontSize: 20,
           }}
         >
-          للاسف حابب تتعلم
+          سجل الان
         </Typography>
       </Stack>
       <form style={{ maxWidth: "350px" }} onSubmit={handleSubmit}>
@@ -132,7 +134,7 @@ const form = (props) => {
           </CardContent>
           <CardActions sx={{ flexDirection: "column" }}>
             <Stack
-              sx={{ width: "90%" }}
+              // sx={{ width: "350px" }}
               direction={"row"}
               alignItems={"center"}
               justifyContent={"center"}
@@ -142,10 +144,10 @@ const form = (props) => {
                   type="submit"
                   variant="contained"
                   sx={{
-                    backgroundColor: theme.palette.black.main,
-                    width: "300px",
+                    backgroundColor: theme.palette.blue.main,
+                    width: "350px",
                     height: "50px",
-                    borderRadius: 15,
+                    borderRadius: "4px",
                     marginTop: "10px",
                   }}
                   disabled={isSubmitting}
@@ -162,7 +164,10 @@ const form = (props) => {
       </form>
       <Stack justifyContent={"center"} direction={"row"}>
         <Typography>لديك حساب بالفعل؟</Typography>
-        <Link style={{ fontWeight: "bold" }} to={"/reg/login"}>
+        <Link
+          style={{ fontWeight: "bold", color: "var(--blue)", margin: "0 10px" }}
+          to={"/reg/login"}
+        >
           سجل دخولك
         </Link>
       </Stack>

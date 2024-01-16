@@ -34,6 +34,10 @@ import StudentRoute from "./modules/student/StudentRoute";
 import InstructorRoute from "./modules/instructor/InstructorRoute";
 import AdminRoute from "./modules/admin/AdminRoute";
 
+import AnimatedPage from "./pages/AnimatedPage";
+import AnimatedPage2 from "./pages/AnimatedPage2";
+import Landing from "./pages/Landing/Landing";
+
 const PrivateRoute = ({ element, allowedRoles }) => {
   const { isStudent, isAdmin, isInstructor } = useAuth();
 
@@ -69,6 +73,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/animation" element={<AnimatedPage />} />
+        <Route path="/animation2" element={<AnimatedPage2 />} />
+        <Route path="/landing" element={<Landing />} />
+
         <Route path="/reg" element={<SigninLayout />}>
           <Route path="/reg/login" element={<LoginPage />} />
           <Route path="/reg/signup" element={<SignupPage />} />

@@ -1,15 +1,26 @@
 import React from "react";
 
-import { Stack, Typography, Box, CircularProgress } from "@mui/material";
+import {
+  Stack,
+  Typography,
+  Box,
+  useMediaQuery,
+  makeStyles,
+} from "@mui/material";
+
+import Grid from "@mui/material/Grid";
 import Alert from "@mui/material/Alert";
 
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-import user from "../../data/user.json";
-import img from "../../assets/profile.jpg";
+import user from "../../../data/user.json";
+import img from "../../../assets/profile.jpg";
+import useResponsiveLayout from "../../../utils/useResponsiveLayout";
 
 function Profile() {
+  // const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
+  const isSmallScreen = useResponsiveLayout();
   return (
     <Stack>
       <Typography
@@ -20,8 +31,9 @@ function Profile() {
         المعلومات الشخصية
       </Typography>
       <Stack
-        direction={"row"}
         width={"100%"}
+        direction={isSmallScreen ? "column" : "row"}
+        alignItems={"center"}
         justifyContent={"space-between"}
         sx={{
           borderRadius: "16px",
@@ -131,8 +143,9 @@ function Profile() {
       >
         المعدل:
       </Typography>
+
       <Stack
-        direction={"row"}
+        direction={isSmallScreen ? "column" : "row"}
         width={"100%"}
         justifyContent={"space-between"}
         gap={"10px"}
@@ -140,7 +153,8 @@ function Profile() {
           borderRadius: "4px",
           background: "#fff",
           boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-          padding: "32px",
+          // padding: "32px",
+          padding: isSmallScreen ? "10px" : "32px",
         }}
       >
         <Stack
@@ -156,12 +170,20 @@ function Profile() {
             padding: "16px 20px",
           }}
         >
-          <Typography fontSize={"22px"}>المجموع التراكمي:</Typography>
-          <Typography fontWeight={"bold"} fontSize={"25px"}>
+          <Typography fontSize={isSmallScreen ? "20px" : "25px"}>
+            المجموع التراكمي:
+          </Typography>
+          <Typography
+            fontWeight={"bold"}
+            fontSize={isSmallScreen ? "20px" : "25px"}
+          >
             87%
           </Typography>
-          <Typography fontWeight={"bold"} fontSize={"25px"}>
-            3.6pts
+          <Typography
+            fontWeight={"bold"}
+            fontSize={isSmallScreen ? "20px" : "25px"}
+          >
+            3.6pt
           </Typography>
         </Stack>
         <Stack
@@ -177,12 +199,20 @@ function Profile() {
             padding: "16px 20px",
           }}
         >
-          <Typography fontSize={"22px"}>المجموع الفصلي:</Typography>
-          <Typography fontWeight={"bold"} fontSize={"25px"}>
+          <Typography fontSize={isSmallScreen ? "20px" : "25px"}>
+            المجموع الفصلي:
+          </Typography>
+          <Typography
+            fontWeight={"bold"}
+            fontSize={isSmallScreen ? "20px" : "25px"}
+          >
             53%
           </Typography>
-          <Typography fontWeight={"bold"} fontSize={"25px"}>
-            2.2pts
+          <Typography
+            fontWeight={"bold"}
+            fontSize={isSmallScreen ? "20px" : "25px"}
+          >
+            2.2pt
           </Typography>
         </Stack>
       </Stack>
@@ -200,7 +230,7 @@ function Profile() {
           borderRadius: "4px",
           background: "#fff",
           boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-          padding: "32px",
+          padding: isSmallScreen ? "10px" : "32px",
         }}
       >
         <Alert variant="filled" severity="warning">
