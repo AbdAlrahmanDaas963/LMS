@@ -23,6 +23,7 @@ const items = [
   getItem(<Link to={"grades"}>الدرجات</Link>, "3"),
   getItem(<Link to={"classes"}>الصفوف</Link>, "4"),
   getItem(<Link to={"assignment"}>الوظائف</Link>, "5"),
+  getItem(<Link to={"quizzes"}>الاختبارات</Link>, "6"),
 ];
 
 const MyDrawer = ({ listItems }) => {

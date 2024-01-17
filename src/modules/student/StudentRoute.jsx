@@ -13,6 +13,7 @@ import Profile from "../student/content/Profile";
 import SigninLayout from "../../pages/signin/SigninLayout";
 import { LoginPage, SignupPage } from "../../pages";
 import CodeCheck from "../../pages/signin/content/CodeCheck";
+import Quizzes from "./content/Quizzes";
 
 // import Layout from "../../pages/Layout";
 // import Courses from "../../pages/content/Courses";
@@ -34,6 +35,7 @@ function StudentRoute() {
 
         <Route path="classes" element={<Classes />} />
         <Route path="grades" element={<Grades />} />
+        <Route path="quizzes" element={<Quizzes />} />
         <Route path="assignment" element={<Assignment />} />
         <Route path="assignment/:id" element={<AssignmentDetailes />} />
         <Route
