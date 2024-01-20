@@ -18,6 +18,7 @@ import HomeworkCard from "../../../components/HomeworkCard";
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AccordionApp from "../../../components/AccordionApp";
+import BackButton from "../../../components/BackButton";
 
 function CourseDetailes() {
   // const { state } = useLocation();
@@ -99,21 +100,65 @@ function CourseDetailes() {
 
   return (
     <Stack direction={"column"}>
-      <Stack direction={"row"}>
-        <Box
-          sx={{ width: "200px", height: "200px", backgroundColor: "#00f" }}
-        ></Box>
-        <Stack alignItems={"flex-start"} sx={{ padding: "15px" }}>
-          <Typography>مقدمة في React #512GTA</Typography>
-          <Typography>جون دو</Typography>
-          <Typography>10:00 صباحًا - 12:00 مساءً</Typography>
-          <Typography>الاثنين</Typography>
+      <BackButton />
+      <Stack
+        sx={{
+          marginTop: "15px",
+          backgroundColor: "#fff",
+          borderRadius: "4px",
+          padding: "10px",
+        }}
+        direction={"row"}
+        justifyContent={"space-between"}
+      >
+        <Stack direction={"row"}>
+          <Box
+            sx={{ width: "200px", height: "200px", backgroundColor: "#00f" }}
+          ></Box>
+          <Stack
+            alignItems={"flex-start"}
+            gap={"10px"}
+            sx={{ padding: "15px" }}
+          >
+            <Stack direction={"row"} alignItems={"center"} gap={"7px"}>
+              <Typography fontWeight={"bold"} fontSize={"20px"}>
+                رياضيات متقطعة
+              </Typography>
+              <Typography fontSize={"15px"}>#exp123</Typography>
+            </Stack>
+            <Typography fontSize={"18px"}>جون دو</Typography>
+            <Typography fontSize={"18px"}>12:45 ظهرا</Typography>
+            <Typography fontSize={"18px"}>الاثنين - الثلاثاء</Typography>
+          </Stack>
+        </Stack>
+        <Stack justifyContent={"space-between"} alignItems={"flex-end"}>
+          <Stack direction={"row"} alignItems={"center"} gap={"10px"}>
+            <Box
+              sx={{
+                backgroundColor: "#42FF00",
+                width: "10px",
+                height: "10px",
+                borderRadius: "50%",
+              }}
+            />
+            <Typography>207 طالب مسجل</Typography>
+          </Stack>
+          <Button variant="outlined">الغاء التسجيل</Button>
         </Stack>
       </Stack>
       <Stack sx={{ backgroundColor: "#fff", margin: "50px 0" }}>
         <AccordionApp lectures={lectures} />
       </Stack>
-      <Stack>
+      <Stack
+        sx={{
+          borderRadius: "4px",
+          padding: "16px",
+          backgroundColor: "#fff",
+        }}
+      >
+        <Typography textAlign={"start"} fontWeight={"bold"}>
+          وظائف المادة
+        </Typography>
         {homework.map((item, index) => (
           <HomeworkCard
             key={index}

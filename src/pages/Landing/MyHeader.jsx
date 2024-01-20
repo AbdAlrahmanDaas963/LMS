@@ -282,6 +282,30 @@ function MyAppBar() {
                 تسجيل دخول
               </Button>
             </Link>
+            <Link to={"/admin"}>
+              <Button
+                variant="contained"
+                sx={{
+                  color: theme.palette.white.main,
+                  borderColor: theme.palette.blue.main,
+                  height: "30px",
+                }}
+              >
+                admin
+              </Button>
+            </Link>
+            <Link to={"/instructor"}>
+              <Button
+                variant="contained"
+                sx={{
+                  color: theme.palette.white.main,
+                  borderColor: theme.palette.blue.main,
+                  height: "30px",
+                }}
+              >
+                instructor
+              </Button>
+            </Link>
           </Stack>
         </Toolbar>
       </Container>

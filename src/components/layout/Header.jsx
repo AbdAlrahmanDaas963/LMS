@@ -3,12 +3,13 @@ import { Box, Typography, Stack } from "@mui/material";
 
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import MenuIcon from "@mui/icons-material/Menu";
 
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
-function Header({ headerData }) {
+function Header({ headerData, handleClick }) {
   const data = {
     name: "محمد بزنكو",
     role: "2016736273",
@@ -17,7 +18,7 @@ function Header({ headerData }) {
   const headerD = headerData ? headerData : data;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event) => {
+  const handleClickBtn = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
@@ -54,9 +55,15 @@ function Header({ headerData }) {
             aria-controls={open ? "basic-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
-            onClick={handleClick}
+            // onClick={handleClickBtn}
+            sx={{
+              display: "flex",
+              width: "100px",
+              justifyContent: "space-between",
+            }}
           >
-            <NotificationsNoneIcon fontSize="large" />
+            <MenuIcon onClick={handleClick} />
+            <NotificationsNoneIcon fontSize="large" onClick={handleClickBtn} />
           </Button>
           <Menu
             id="basic-menu"

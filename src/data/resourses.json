@@ -1,0 +1,51 @@
+{
+  "courses": [
+    {
+      "name": "React Basics",
+      "isEnrolled": true,
+      "res": [
+        {
+          "type": "pdf",
+          "content": "https://example.com/react-basics.pdf"
+        },
+        {
+          "type": "website",
+          "content": "https://example.com/react-basics"
+        },
+        {
+          "type": "rar",
+          "content": "https://example.com/react-basics.rar"
+        }
+      ]
+    },
+    {
+      "name": "JavaScript Fundamentals",
+      "isEnrolled": false,
+      "res": [
+        {
+          "type": "pdf",
+          "content": "https://example.com/react-basics.pdf"
+        },
+        {
+          "type": "rar",
+          "content": "https://example.com/react-basics.rar"
+        }
+      ]
+    },
+    {
+      "name": "CSS Mastery",
+      "isEnrolled": true,
+      "res": [
+        {
+          "type": "website",
+          "content": "https://example.com/react-basics"
+        }
+      ]
+    },
+    {
+      "name": "Node-js",
+      "isEnrolled": true,
+      "res": []
+    }
+  ]
+}

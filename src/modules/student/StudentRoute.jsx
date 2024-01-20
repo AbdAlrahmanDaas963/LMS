@@ -7,6 +7,7 @@ import Assignment from "../student/content/Assignment";
 import AssignmentDetailes from "../student/content/AssignmentDetailes";
 import Classes from "../student/content/Classes";
 import CourseDetailes from "../student/content/CourseDetailes";
+import CourseDetailesUnReg from "./content/CourseDetailesUnReg";
 import Grades from "../student/content/Grades";
 import Profile from "../student/content/Profile";
 
@@ -14,6 +15,9 @@ import SigninLayout from "../../pages/signin/SigninLayout";
 import { LoginPage, SignupPage } from "../../pages";
 import CodeCheck from "../../pages/signin/content/CodeCheck";
 import Quizzes from "./content/Quizzes";
+import Resourses from "./content/Resourses";
+import Calendar from "./content/CalendarPage";
+import Scheduler from "./content/Scheduler";
 
 // import Layout from "../../pages/Layout";
 // import Courses from "../../pages/content/Courses";
@@ -31,11 +35,16 @@ function StudentRoute() {
         <Route path="courses" element={<Courses />} />
         <Route path="courses/:id" element={<CourseDetailes />} />
         <Route path="coursedetailes" element={<CourseDetailes />} />
-        <Route path="profile" element={<Profile />} />
+        <Route path="coursedetailesunreg" element={<CourseDetailesUnReg />} />
 
+        <Route path="profile" element={<Profile />} />
         <Route path="classes" element={<Classes />} />
         <Route path="grades" element={<Grades />} />
         <Route path="quizzes" element={<Quizzes />} />
+        <Route path="resourses" element={<Resourses />} />
+        <Route path="calendar" element={<Calendar />} />
+        <Route path="scheduler" element={<Scheduler />} />
+
         <Route path="assignment" element={<Assignment />} />
         <Route path="assignment/:id" element={<AssignmentDetailes />} />
         <Route

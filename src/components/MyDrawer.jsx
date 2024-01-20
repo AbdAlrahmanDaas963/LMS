@@ -24,6 +24,8 @@ const items = [
   getItem(<Link to={"classes"}>الصفوف</Link>, "4"),
   getItem(<Link to={"assignment"}>الوظائف</Link>, "5"),
   getItem(<Link to={"quizzes"}>الاختبارات</Link>, "6"),
+  getItem(<Link to={"resourses"}>المصادر</Link>, "7"),
+  getItem(<Link to={"calendar"}>التقويم</Link>, "8"),
 ];
 
 const MyDrawer = ({ listItems }) => {

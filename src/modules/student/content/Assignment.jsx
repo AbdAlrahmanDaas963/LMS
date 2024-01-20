@@ -36,7 +36,19 @@ function Assignment() {
   ];
 
   return (
-    <Stack>
+    <Stack sx={{ borderRadius: "4px" }}>
+      <Stack
+        sx={{
+          padding: " 15px 10px",
+          backgroundColor: "#fff",
+          borderTopRightRadius: "4px",
+          borderTopLeftRadius: "4px",
+        }}
+      >
+        <Typography fontWeight={"bold"} textAlign={"start"}>
+          الوظائف
+        </Typography>
+      </Stack>
       <div>
         <Accordion>
           <AccordionSummary
@@ -44,7 +56,7 @@ function Assignment() {
             aria-controls="panel1-content"
             id="panel1-header"
           >
-            <Typography fontWeight={"bold"}>فيزيا 1</Typography>
+            <Typography>فيزيا 1</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>لا يوجد وظائف حاليا</Typography>
@@ -56,7 +68,7 @@ function Assignment() {
             aria-controls="panel2-content"
             id="panel2-header"
           >
-            <Typography fontWeight={"bold"}>امن المعلومات</Typography>
+            <Typography>امن المعلومات</Typography>
           </AccordionSummary>
           <AccordionDetails sx={{ padding: "0 20px" }}>
             <Stack
@@ -114,9 +126,7 @@ function Assignment() {
             aria-controls="panel1-content"
             id="panel1-header"
           >
-            <Typography fontWeight={"bold"}>
-              تفاعل الانسان مع الحاسوب
-            </Typography>
+            <Typography>تفاعل الانسان مع الحاسوب</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Stack

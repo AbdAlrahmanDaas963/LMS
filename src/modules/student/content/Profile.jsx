@@ -233,7 +233,7 @@ function Profile() {
           padding: isSmallScreen ? "10px" : "32px",
         }}
       >
-        <Alert variant="filled" severity="warning">
+        <Alert variant="outlined" severity="warning">
           <Stack alignItems={"flex-start"} sx={{ margin: "0 10px" }}>
             <Typography fontSize={"20px"} fontWeight={"bold"}>
               استدراكي
@@ -242,7 +242,7 @@ function Profile() {
           </Stack>
         </Alert>
 
-        <Alert variant="filled" severity="error">
+        <Alert variant="outlined" severity="error">
           <Stack alignItems={"flex-start"} sx={{ margin: "0 10px" }}>
             <Typography fontSize={"20px"} fontWeight={"bold"}>
               غياب

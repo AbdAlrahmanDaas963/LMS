@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 import Header from "../../components/layout/Header";
 import MyDrawer from "../../components/MyDrawer";
 import { Stack } from "@mui/material";
+import Sidebar from "../../components/layout/student/Sidebar";
 
 function getItem(label, key, icon, children) {
   return {
@@ -25,21 +26,38 @@ const items = [
 ];
 
 function AdminLayout() {
+  const [open, setOpen] = useState(true);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
   const data = {
     name: "د.ميساء",
     role: "عميد الكلية",
     notifications: ["one noti", "second one", "3rd woeoew", "the last one"],
   };
+
+  const items = [
+    { title: "الطلاب", path: "students" },
+    { title: "الكورسات", path: "courses" },
+    { title: "الوظائف", path: "assignment" },
+    { title: "سبيشل", path: "ps" },
+    { title: "صفوف", path: "classes" },
+    { title: "الاحصائيات", path: "statistics" },
+    { title: "ادوار", path: "roles" },
+  ];
+
   return (
     <Stack
       sx={{ width: "100vw", height: "100vh", minHeight: "500px" }}
       direction={"row"}
     >
       {/* <MySider /> */}
-      <MyDrawer listItems={items} />
       {/* <Drawer isOpen={true} /> */}
+      {/* <MyDrawer listItems={items} /> */}
+      <Sidebar open={open} items={items} />
       <div style={{ width: "100%", overflowY: "auto" }}>
-        <Header headerData={data} />
+        <Header headerData={data} handleClick={handleClick} />
         <div style={{ padding: "20px" }}>
           <Outlet />
         </div>
