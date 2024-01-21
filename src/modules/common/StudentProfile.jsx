@@ -1,469 +1,267 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { Stack, Typography, Box, Button } from "@mui/material";
-import Dialog from "@mui/material/Dialog";
-import ListItemText from "@mui/material/ListItemText";
-import ListItem from "@mui/material/ListItem";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
+import {
+  Stack,
+  Typography,
+  Button,
+  Box,
+  FormControl,
+  Select,
+  MenuItem,
+} from "@mui/material";
+
+import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
-import Slide from "@mui/material/Slide";
-import Alert from "@mui/material/Alert";
-
-import useResponsiveLayout from "../../utils/useResponsiveLayout";
-
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
 
 import img from "../../assets/profile.jpg";
+import MyPaper from "../../components/MyPaper";
+import MyTable from "../../components/MyTable";
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+const initialData = {
+  columns: [
+    "Course_name",
+    "Course_ID",
+    "Hours",
+    "Status",
+    "amali",
+    "nazari",
+    "percent",
+    "points",
+  ],
+  rows: [
+    {
+      Course_name: "خوارزميات",
+      Course_ID: "wx304",
+      Hours: "3",
+      Status: "ناجح",
+      amali: "19",
+      nazari: "43",
+      percent: "73%",
+      points: "2.2",
+    },
+    {
+      Course_name: "خوارزميات",
+      Course_ID: "wx304",
+      Hours: "3",
+      Status: "ناجح",
+      amali: "19",
+      nazari: "43",
+      percent: "73%",
+      points: "2.2",
+    },
+    {
+      Course_name: "شبكات الحاسوب",
+      Course_ID: "cn201",
+      Hours: "4",
+      Status: "راسب",
+      amali: "12",
+      nazari: "35",
+      percent: "45%",
+      points: "1.5",
+    },
+    {
+      Course_name: "برمجة الويب",
+      Course_ID: "web101",
+      Hours: "3",
+      Status: "ناجح",
+      amali: "22",
+      nazari: "48",
+      percent: "80%",
+      points: "3.0",
+    },
+    {
+      Course_name: "قواعد البيانات",
+      Course_ID: "db200",
+      Hours: "3",
+      Status: "ناجح",
+      amali: "18",
+      nazari: "40",
+      percent: "75%",
+      points: "2.5",
+    },
+    {
+      Course_name: "تحليل الأداء",
+      Course_ID: "pa301",
+      Hours: "3",
+      Status: "راسب",
+      amali: "14",
+      nazari: "32",
+      percent: "50%",
+      points: "1.8",
+    },
+    {
+      Course_name: "أمان المعلومات",
+      Course_ID: "is401",
+      Hours: "4",
+      Status: "ناجح",
+      amali: "24",
+      nazari: "50",
+      percent: "85%",
+      points: "3.5",
+    },
+    {
+      Course_name: "تصميم الخوارزميات",
+      Course_ID: "da501",
+      Hours: "3",
+      Status: "ناجح",
+      amali: "20",
+      nazari: "45",
+      percent: "78%",
+      points: "2.8",
+    },
+    {
+      Course_name: "تطوير تطبيقات الجوال",
+      Course_ID: "ma701",
+      Hours: "4",
+      Status: "راسب",
+      amali: "16",
+      nazari: "38",
+      percent: "55%",
+      points: "2.0",
+    },
+    {
+      Course_name: "علم البيانات",
+      Course_ID: "ds601",
+      Hours: "3",
+      Status: "ناجح",
+      amali: "23",
+      nazari: "49",
+      percent: "82%",
+      points: "3.2",
+    },
+    {
+      Course_name: "تطوير البرمجيات",
+      Course_ID: "sd801",
+      Hours: "4",
+      Status: "ناجح",
+      amali: "21",
+      nazari: "46",
+      percent: "79%",
+      points: "3.0",
+    },
+  ],
+};
+
+const KeyNValue = ({ title, value }) => {
+  return (
+    <Stack direction={"row"} alignItems={"center"} gap={"5px"}>
+      <Typography>{title}:</Typography>
+      <Typography>{value}</Typography>
+    </Stack>
+  );
+};
+
+const VerDivider = () => {
+  return (
+    <Box
+      sx={{
+        width: "1px",
+        height: "100%",
+        backgroundColor: "#DDD",
+      }}
+    />
+  );
+};
 
 function StudentProfile() {
-  const [open1, setOpen1] = React.useState(false);
-  const [open2, setOpen2] = React.useState(false);
-  const [open3, setOpen3] = React.useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(15);
 
-  const isSmallScreen = useResponsiveLayout();
-
-  const handleClickOpen1 = () => {
-    setOpen1(true);
-  };
-  const handleClickOpen2 = () => {
-    setOpen2(true);
-  };
-  const handleClickOpen3 = () => {
-    setOpen3(true);
+  const handleChange = (event) => {
+    const value = event.target.value;
+    setSelectedCourse(value);
   };
 
-  const handleClose1 = () => {
-    setOpen1(false);
-  };
-  const handleClose2 = () => {
-    setOpen2(false);
-  };
-  const handleClose3 = () => {
-    setOpen3(false);
-  };
+  function handleButtonClick(buttonText, rowData) {
+    // Handle the button click event here
+    console.log(`Button "${buttonText}" clicked for row:`, rowData);
+  }
 
   return (
-    <Stack>
-      <Typography
-        textAlign={"start"}
-        fontWeight={"bold"}
-        sx={{ margin: "10px 0" }}
-      >
-        المعلومات الشخصية
-      </Typography>
-      <Stack
-        direction={isSmallScreen ? "column" : "row"}
-        alignItems={"center"}
-        width={"100%"}
-        justifyContent={"space-between"}
-        sx={{
-          borderRadius: "16px",
-          background: "#fff",
-          boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-          padding: "32px",
-        }}
-      >
-        <Stack>
-          <Box marginTop={"15px"}>
-            <Typography textAlign={"start"}>الاسم:</Typography>
-            <Typography textAlign={"start"} fontSize={"22px"}>
-              محمد عبدالسلام بزنكو
-            </Typography>
-          </Box>
-          <Box marginTop={"15px"}>
-            <Typography textAlign={"start"}>الكلية:</Typography>
-            <Typography textAlign={"start"} fontSize={"22px"}>
-              الهندسة المعلوماتية
-            </Typography>
-          </Box>
-        </Stack>
-        <Stack>
-          <Box marginTop={"15px"}>
-            <Typography textAlign={"start"}>الرقم الجامعي</Typography>
-            <Typography textAlign={"start"} fontSize={"22px"}>
-              423423423432
-            </Typography>
-          </Box>
-          <Stack
-            direction={"row"}
-            justifyContent={"space-between"}
-            marginTop={"15px"}
-          >
-            <Box>
-              <Typography textAlign={"start"}>السنة:</Typography>
-              <Typography textAlign={"start"} fontSize={"22px"}>
-                الثالثة
-              </Typography>
-            </Box>
-            <Box>
-              <Typography textAlign={"start"}>الحالة:</Typography>
-              <Typography textAlign={"start"} fontSize={"22px"}>
-                نشط
-              </Typography>
-            </Box>
-          </Stack>
-        </Stack>
-        <Box
-          sx={{
-            border: "3px solid black",
-            borderRadius: "50%",
-            overflow: "hidden",
-            width: "200px",
-            height: "200px",
-          }}
-        >
-          <img src={img} alt="" width={"100%"} />
-        </Box>
-      </Stack>
-      <Typography
-        fontSize={"22px"}
-        textAlign={"start"}
-        sx={{ margin: "15px 0" }}
-      >
-        عدد الساعات:
-      </Typography>
+    <MyPaper>
+      {/* header */}
       <Stack
         direction={"row"}
-        width={"100%"}
+        alignItems={"center"}
         justifyContent={"space-between"}
-        sx={{
-          borderRadius: "4px",
-          background: "#fff",
-          boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-          padding: "32px",
-        }}
       >
-        <Stack>
-          <Typography fontSize={"22px"}>المنجزة: 101</Typography>
-          <Typography fontSize={"22px"}>المتبقية: 68</Typography>
-          <Typography fontSize={"22px"}>الكامل: 169</Typography>
+        <Typography>معلومات طالب</Typography>
+        <Stack direction={"row"} gap={"10px"}>
+          <Button
+            startIcon={<EditIcon />}
+            variant="outlined"
+            sx={{ gap: "10px", paddingRight: "0" }}
+          >
+            تعديل بيانات الطالب
+          </Button>
+          <Button
+            startIcon={<CloseIcon />}
+            variant="contained"
+            sx={{ gap: "10px", paddingRight: "0" }}
+          >
+            اغلاق التفاصيل
+          </Button>
         </Stack>
+      </Stack>
 
-        <Box width={"120px"} height={"120px"}>
-          <CircularProgressbar
-            value={70}
-            text={`${70}%`}
-            styles={buildStyles({
-              rotation: 0.25,
-              strokeLinecap: "butt",
-              textSize: "16px",
-              fontWeight: "bold",
-              pathTransitionDuration: 0.5,
-              pathColor: `var(--yellow)`,
-              textColor: "var(--black)",
-              trailColor: "var(--white)",
-              backgroundColor: "var(--yellow)",
-            })}
-          />
-        </Box>
-      </Stack>
-      <Typography
-        fontSize={"22px"}
-        textAlign={"start"}
-        sx={{ margin: "15px 0" }}
-      >
-        المعدل:
-      </Typography>
+      {/* body */}
       <Stack
-        direction={isSmallScreen ? "column" : "row"}
-        width={"100%"}
-        justifyContent={"space-between"}
-        gap={"10px"}
+        direction={"row"}
+        gap={"20px"}
+        alignItems={"center"}
+        justifyContent={"flex-start"}
         sx={{
-          borderRadius: "4px",
-          background: "#fff",
-          boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-          padding: isSmallScreen ? "10px" : "32px",
+          height: "200px",
+          padding: "10px",
+          margin: "20px 0",
         }}
       >
-        <Stack
-          direction={"row"}
-          alignItems={"center"}
-          justifyContent={"space-between"}
-          sx={{
-            width: "100%",
-            height: "85px",
-            backgroundColor: "var(--blue)",
-            color: "var(--white)",
-            borderRadius: "8px",
-            padding: "16px 20px",
-          }}
-        >
-          <Typography fontSize={isSmallScreen ? "20px" : "25px"}>
-            المجموع التراكمي:
-          </Typography>
-          <Typography
-            fontWeight={"bold"}
-            fontSize={isSmallScreen ? "20px" : "25px"}
-          >
-            87%
-          </Typography>
-          <Typography
-            fontWeight={"bold"}
-            fontSize={isSmallScreen ? "20px" : "25px"}
-          >
-            3.6pts
-          </Typography>
-        </Stack>
-        <Stack
-          direction={"row"}
-          alignItems={"center"}
-          justifyContent={"space-between"}
-          sx={{
-            width: "100%",
-            height: "85px",
-            backgroundColor: "var(--yellow)",
-            color: "var(--black)",
-            borderRadius: "8px",
-            padding: "16px 20px",
-          }}
-        >
-          <Typography fontSize={isSmallScreen ? "20px" : "25px"}>
-            المجموع الفصلي:
-          </Typography>
-          <Typography
-            fontWeight={"bold"}
-            fontSize={isSmallScreen ? "20px" : "25px"}
-          >
-            53%
-          </Typography>
-          <Typography
-            fontWeight={"bold"}
-            fontSize={isSmallScreen ? "20px" : "25px"}
-          >
-            2.2pts
-          </Typography>
-        </Stack>
-      </Stack>
-      <Typography
-        fontSize={"22px"}
-        textAlign={"start"}
-        sx={{ margin: "15px 0" }}
-      >
-        الانذارات:
-      </Typography>
-      <Stack
-        width={"100%"}
-        gap={"10px"}
-        sx={{
-          borderRadius: "4px",
-          background: "#fff",
-          boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-          padding: isSmallScreen ? "10px" : "32px",
-          marginBottom: "20px",
-        }}
-      >
-        <Alert variant="filled" severity="warning">
-          <Stack alignItems={"flex-start"} sx={{ margin: "0 10px" }}>
-            <Typography fontSize={"20px"} fontWeight={"bold"}>
-              استدراكي
-            </Typography>
-            <Typography>المعدل 1.99</Typography>
-          </Stack>
-        </Alert>
+        <img
+          src={img}
+          alt=""
+          width={"180px"}
+          style={{ borderRadius: "10px" }}
+        />
+        <VerDivider />
 
-        <Alert variant="filled" severity="error">
-          <Stack alignItems={"flex-start"} sx={{ margin: "0 10px" }}>
-            <Typography fontSize={"20px"} fontWeight={"bold"}>
-              غياب
-            </Typography>
-            <Typography>رياضيات 1</Typography>
-          </Stack>
-        </Alert>
-      </Stack>
-      {/* <Stack direction={"row"} width={"100%"} justifyContent={"space-between"}>
-        <Stack>
-          <Box marginTop={"15px"}>
-            <Typography>name</Typography>
-            <Typography>joe done</Typography>
-          </Box>
-          <Box marginTop={"15px"}>
-            <Typography>collage</Typography>
-            <Typography>math</Typography>
-          </Box>
-          <Box marginTop={"15px"}>
-            <Typography>grade</Typography>
-            <Typography>80%</Typography>
-          </Box>
+        <Stack sx={{ height: "100%" }} justifyContent={"space-evenly"}>
+          <KeyNValue title={"الاسم"} value={"محمد نور الدقاق"} />
+          <KeyNValue title={"الرقم الجامعي"} value={"2018016106"} />
+          <KeyNValue title={"الكلية"} value={"الهندسة المعلوماتية"} />
+          <KeyNValue title={"السنة"} value={"الاولى"} />
         </Stack>
-        <Stack>
-          <Box marginTop={"15px"}>
-            <Typography>st_id</Typography>
-            <Typography>423423423432</Typography>
-          </Box>
-          <Stack direction={"row"} gap={"15px"} marginTop={"15px"}>
-            <Box>
-              <Typography>collage</Typography>
-              <Typography>math</Typography>
-            </Box>
-            <Box>
-              <Typography>status</Typography>
-              <Typography>true</Typography>
-            </Box>
-          </Stack>
-          <Box marginTop={"15px"}>
-            <Typography>hours</Typography>
-            <Typography>169/53</Typography>
-          </Box>
+        <VerDivider />
+        <Stack sx={{ height: "100%" }} justifyContent={"space-evenly"}>
+          <KeyNValue title={"الحالة"} value={"مسجل"} />
+          <KeyNValue title={"عدد الساعات"} value={"169 / 19"} />
+          <KeyNValue title={"المئوي"} value={"76%"} />
+          <KeyNValue title={"النقطي"} value={"2.2"} />
         </Stack>
-        <img src={img} alt="" width={"200px"} />
-      </Stack> */}
-      {/* ------------------------------------------------- */}
-      <Stack direction={"row"} justifyContent={"center"} gap={"10px"}>
-        <React.Fragment>
-          <Button variant="outlined" color="success" onClick={handleClickOpen3}>
-            add
-          </Button>
-          <Dialog
-            fullScreen
-            open={open3}
-            onClose={handleClose3}
-            TransitionComponent={Transition}
-          >
-            <AppBar sx={{ position: "relative" }} color="success">
-              <Toolbar>
-                <IconButton
-                  edge="start"
-                  color="inherit"
-                  onClick={handleClose3}
-                  aria-label="close"
-                >
-                  <CloseIcon />
-                </IconButton>
-                <Typography
-                  sx={{ ml: 2, flex: 1 }}
-                  variant="h6"
-                  component="div"
-                >
-                  Add
-                </Typography>
-                <Button autoFocus color="inherit" onClick={handleClose3}>
-                  حفظ التعديلات
-                </Button>
-              </Toolbar>
-            </AppBar>
-            <List>
-              <ListItem button>
-                <ListItemText
-                  primary="Add Button"
-                  secondary="Newwwwwwwwwwwwww"
-                />
-              </ListItem>
-              <Divider />
-              <ListItem button>
-                <ListItemText
-                  primary="Default notification ringtone"
-                  secondary="Tethys"
-                />
-              </ListItem>
-            </List>
-          </Dialog>
-        </React.Fragment>
-        {/* ------------------ */}
-        <React.Fragment>
-          <Button variant="outlined" color="info" onClick={handleClickOpen2}>
-            edit
-          </Button>
-          <Dialog
-            fullScreen
-            open={open2}
-            onClose={handleClose2}
-            TransitionComponent={Transition}
-          >
-            <AppBar sx={{ position: "relative" }} color="info">
-              <Toolbar>
-                <IconButton
-                  edge="start"
-                  color="inherit"
-                  onClick={handleClose2}
-                  aria-label="close"
-                >
-                  <CloseIcon />
-                </IconButton>
-                <Typography
-                  sx={{ ml: 2, flex: 1 }}
-                  variant="h6"
-                  component="div"
-                >
-                  Edit
-                </Typography>
-                <Button autoFocus color="inherit" onClick={handleClose2}>
-                  حفظ التعديلات
-                </Button>
-              </Toolbar>
-            </AppBar>
-            <List>
-              <ListItem button>
-                <ListItemText primary="Edit Button" secondary="wowwww" />
-              </ListItem>
-              <Divider />
-              <ListItem button>
-                <ListItemText
-                  primary="Default notification ringtone"
-                  secondary="Tethys"
-                />
-              </ListItem>
-            </List>
-          </Dialog>
-        </React.Fragment>
-        {/* ------------------ */}
-        <React.Fragment>
-          <Button variant="outlined" color="error" onClick={handleClickOpen1}>
-            delete
-          </Button>
-          <Dialog
-            fullScreen
-            open={open1}
-            onClose={handleClose1}
-            TransitionComponent={Transition}
-          >
-            <AppBar sx={{ position: "relative" }} color="error">
-              <Toolbar>
-                <IconButton
-                  edge="start"
-                  color="inherit"
-                  onClick={handleClose1}
-                  aria-label="close"
-                >
-                  <CloseIcon />
-                </IconButton>
-                <Typography
-                  sx={{ ml: 2, flex: 1 }}
-                  variant="h6"
-                  component="div"
-                >
-                  Delete
-                </Typography>
-                <Button autoFocus color="inherit" onClick={handleClose1}>
-                  حفظ التعديلات
-                </Button>
-              </Toolbar>
-            </AppBar>
-            <List>
-              <ListItem button>
-                <ListItemText primary="Delete Button" secondary="Titania" />
-              </ListItem>
-              <Divider />
-              <ListItem button>
-                <ListItemText
-                  primary="Default notification ringtone"
-                  secondary="Tethys"
-                />
-              </ListItem>
-            </List>
-          </Dialog>
-        </React.Fragment>
       </Stack>
-    </Stack>
+      <Stack>
+        <FormControl sx={{ width: "300px", marginBottom: "20px" }}>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={selectedCourse}
+            label="Age"
+            onChange={handleChange}
+          >
+            {initialData.rows.map((item, index) => (
+              <MenuItem key={index} value={index}>
+                {item.Course_name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <MyTable
+          editBtn={false}
+          detailesBtn={false}
+          data={initialData.rows}
+          columns={initialData.columns}
+          onButtonClick={handleButtonClick}
+        />
+      </Stack>
+    </MyPaper>
   );
 }
 

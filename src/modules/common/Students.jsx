@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import {
@@ -91,6 +91,8 @@ const initialData = {
 };
 
 function Students() {
+  const navigate = useNavigate();
+
   // ? backend or redux store
   const [data, setData] = useState(initialData);
 
@@ -110,6 +112,8 @@ function Students() {
   function handleButtonClick(buttonText, rowData) {
     // Handle the button click event here
     console.log(`Button "${buttonText}" clicked for row:`, rowData);
+    if (buttonText === "Button 2") navigate("profile");
+    else console.log("not");
   }
 
   const handleChange = (event) => {
@@ -131,7 +135,9 @@ function Students() {
         justifyContent={"space-between"}
       >
         <Typography fontWeight={"bold"}>الطلاب</Typography>
-        <Button variant="contained">اضافة طالب</Button>
+        <Link to={"profile"}>
+          <Button variant="contained">اضافة طالب</Button>
+        </Link>
       </Stack>
 
       {/* controllers */}
