@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import InstructorLayout from "./InstructorLayout";
 import Students from "../common/Students";
 import Courses from "./content/Courses";
-import Assignments from "./content/Assignments";
+import Assignments from "../common/Assignment";
 import Classes from "./content/Classes";
 import Grades from "../../pages/content/Grades";
 

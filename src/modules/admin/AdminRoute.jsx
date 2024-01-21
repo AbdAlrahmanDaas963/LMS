@@ -8,7 +8,7 @@ import CourseDetailes from "../../pages/content/CourseDetailes";
 import Profile from "../../pages/content/Profile";
 import Classes from "../../pages/content/Classes";
 import Grades from "../../pages/content/Grades";
-import Assignment from "../../pages/content/Assignment";
+import Assignment from "../common/Assignment";
 import AssignmentDetailes from "../../pages/content/AssignmentDetailes";
 import SigninLayout from "../../pages/signin/SigninLayout";
 import { LoginPage, SignupPage } from "../../pages";
