@@ -16,6 +16,8 @@ import StudentProfile from "../common/StudentProfile";
 import EditStudent from "../common/EditStudent";
 import AddStudent from "../common/AddStudent";
 import AssignmentDetailes from "../common/AssignmentDetailes";
+import CourseDetailes from "../common/CourseDetailes";
+import ComingSoon from "../common/ComingSoon";
 
 function InstructorRoute() {
   return (
@@ -24,8 +26,9 @@ function InstructorRoute() {
         <Route path="students" element={<Students />} />
         <Route path="students/profile" element={<StudentProfile />} />
         <Route path="courses" element={<Courses />} />
+        <Route path="courses/coursedetailes" element={<CourseDetailes />} />
         <Route path="assignment" element={<Assignments />} />
-        <Route path="classes" element={<Classes />} />
+        <Route path="classes" element={<ComingSoon />} />
         <Route path="statistics" element={<Statistics />} />
         <Route path="editstudent" element={<EditStudent />} />
         <Route path="addstudent" element={<AddStudent />} />

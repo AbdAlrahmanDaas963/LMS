@@ -18,6 +18,7 @@ import Quizzes from "./content/Quizzes";
 import Resourses from "./content/Resourses";
 import Calendar from "./content/CalendarPage";
 import Scheduler from "./content/Scheduler";
+import ComingSoon from "../common/ComingSoon";
 
 // import Layout from "../../pages/Layout";
 // import Courses from "../../pages/content/Courses";
@@ -38,12 +39,12 @@ function StudentRoute() {
         <Route path="coursedetailesunreg" element={<CourseDetailesUnReg />} />
 
         <Route path="profile" element={<Profile />} />
-        <Route path="classes" element={<Classes />} />
+        <Route path="classes" element={<ComingSoon />} />
         <Route path="grades" element={<Grades />} />
         <Route path="quizzes" element={<Quizzes />} />
         <Route path="resourses" element={<Resourses />} />
-        <Route path="calendar" element={<Calendar />} />
-        <Route path="scheduler" element={<Scheduler />} />
+        <Route path="calendar" element={<ComingSoon />} />
+        <Route path="scheduler" element={<ComingSoon />} />
 
         <Route path="assignment" element={<Assignment />} />
         <Route path="assignment/:id" element={<AssignmentDetailes />} />

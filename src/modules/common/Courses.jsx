@@ -2,6 +2,8 @@
 
 import React from "react";
 
+import { Link, useNavigate } from "react-router-dom";
+
 import MyProTable from "../../components/MyProTable";
 
 const initialData = {
@@ -143,10 +145,14 @@ const initialData = {
 };
 
 function Courses() {
+  const navigate = useNavigate();
+
   const handleTableButtonClick = (buttonText, rowData) => {
     // Handle button click based on the buttonText and rowData
     console.log(`Button "${buttonText}" clicked for row:`, rowData);
     // Add your custom logic here
+    if (buttonText === "Button 2") navigate("coursedetailes");
+    else console.log("not");
   };
   return (
     <MyProTable

@@ -50,21 +50,31 @@ function Header({ headerData, handleClick }) {
         {/* <NotificationsNoneIcon fontSize="large" /> */}
 
         <div>
-          <Button
-            id="basic-button"
-            aria-controls={open ? "basic-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
-            // onClick={handleClickBtn}
-            sx={{
-              display: "flex",
-              width: "100px",
-              justifyContent: "space-between",
-            }}
+          <Stack
+            alignItems={"center"}
+            justifyContent={"center"}
+            direction={"row"}
           >
-            <MenuIcon onClick={handleClick} />
-            <NotificationsNoneIcon fontSize="large" onClick={handleClickBtn} />
-          </Button>
+            <Button
+              id="basic-button2"
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
+            >
+              <MenuIcon fontSize="large" />
+            </Button>
+
+            <Button
+              id="basic-button"
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClickBtn}
+            >
+              <NotificationsNoneIcon fontSize="large" />
+            </Button>
+          </Stack>
           <Menu
             id="basic-menu"
             anchorEl={anchorEl}

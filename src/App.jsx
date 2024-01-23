@@ -37,13 +37,14 @@ import AdminRoute from "./modules/admin/AdminRoute";
 import AnimatedPage from "./pages/AnimatedPage";
 import AnimatedPage2 from "./pages/AnimatedPage2";
 import Landing from "./pages/Landing/Landing";
+import NotFound from "./pages/NotFound";
 
 const PrivateRoute = ({ element, allowedRoles }) => {
   const { isStudent, isAdmin, isInstructor } = useAuth();
 
-  console.log("isStudent :>> ", isStudent);
-  console.log("isAdmin :>> ", isAdmin);
-  console.log("isInstructor :>> ", isInstructor);
+  // console.log("isStudent :>> ", isStudent);
+  // console.log("isAdmin :>> ", isAdmin);
+  // console.log("isInstructor :>> ", isInstructor);
 
   // if (
   //   (allowedRoles.includes(USER_ROLES.STUDENT) && isStudent) ||
@@ -106,6 +107,7 @@ function App() {
             />
           }
         />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

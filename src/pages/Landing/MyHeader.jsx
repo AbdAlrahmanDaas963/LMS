@@ -258,7 +258,7 @@ function MyAppBar() {
             />
           </Box>
           <Stack direction={"row"} gap={"8px"}>
-            <Link to={"/student"}>
+            <Link to={"/qwewqwe"}>
               <Button
                 variant="outlined"
                 sx={{

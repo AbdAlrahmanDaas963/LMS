@@ -17,6 +17,7 @@ import StudentProfile from "../common/StudentProfile";
 import EditStudent from "../common/EditStudent";
 import AddStudent from "../common/AddStudent";
 import AssignmentDetailes from "../common/AssignmentDetailes";
+import ComingSoon from "../common/ComingSoon";
 
 function AdminRoute() {
   return (
@@ -26,10 +27,10 @@ function AdminRoute() {
         <Route path="students/profile" element={<StudentProfile />} />
         <Route path="courses" element={<Courses />} />
         <Route path="assignment" element={<Assignment />} />
-        <Route path="ps" element={<Ps />} />
-        <Route path="classes" element={<Classes />} />
+        <Route path="ps" element={<ComingSoon />} />
+        <Route path="classes" element={<ComingSoon />} />
         <Route path="statistics" element={<Statistics />} />
-        <Route path="roles" element={<Roles />} />
+        <Route path="roles" element={<ComingSoon />} />
         <Route path="editstudent" element={<EditStudent />} />
         <Route path="addstudent" element={<AddStudent />} />
         <Route
