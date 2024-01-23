@@ -20,6 +20,7 @@
     "@mui/material": "^5.14.18",
     "@mui/x-date-pickers": "^6.0.3",
     "@reduxjs/toolkit": "^2.0.1",
+    "@vercel/analytics": "^1.1.2",
     "antd": "^5.12.5",
     "axios": "^1.6.5",
     "bcrypt": "^5.1.1",
