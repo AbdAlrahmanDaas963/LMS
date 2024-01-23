@@ -251,7 +251,6 @@ function Statistics() {
           boxShadow: "0 0 10px grey",
         }}
       >
-        {/*  */}
         <Stack>
           <Stack
             direction={"row"}

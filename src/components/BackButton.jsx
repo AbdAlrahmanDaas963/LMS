@@ -6,7 +6,7 @@ function BackButton() {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
-    navigate(-1); // Navigate back one step
+    navigate(-1);
   };
 
   return (
@@ -22,6 +22,7 @@ function BackButton() {
         alignItems: "center",
         justifyContent: "center",
         cursor: "pointer",
+        marginBottom: "20px",
       }}
     >
       <EastIcon htmlColor="#fff" />

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { useNavigate, Link } from "react-router-dom";
+
 import {
   Stack,
   Typography,
@@ -9,6 +11,10 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
+import Tab from "@mui/material/Tab";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
 
 import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
@@ -16,6 +22,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import img from "../../assets/profile.jpg";
 import MyPaper from "../../components/MyPaper";
 import MyTable from "../../components/MyTable";
+import BackButton from "../../components/BackButton";
 
 const initialData = {
   columns: [
@@ -164,11 +171,15 @@ const VerDivider = () => {
 };
 
 function StudentProfile() {
-  const [selectedCourse, setSelectedCourse] = useState(15);
+  const navigate = useNavigate();
 
-  const handleChange = (event) => {
-    const value = event.target.value;
-    setSelectedCourse(value);
+  const goBack = () => {
+    navigate(-1);
+  };
+  const [TabsValue, setTabsValue] = useState("1");
+
+  const handleTabsChange = (event, newValue) => {
+    setTabsValue(newValue);
   };
 
   function handleButtonClick(buttonText, rowData) {
@@ -177,91 +188,122 @@ function StudentProfile() {
   }
 
   return (
-    <MyPaper>
-      {/* header */}
-      <Stack
-        direction={"row"}
-        alignItems={"center"}
-        justifyContent={"space-between"}
-      >
-        <Typography>معلومات طالب</Typography>
-        <Stack direction={"row"} gap={"10px"}>
-          <Button
-            startIcon={<EditIcon />}
-            variant="outlined"
-            sx={{ gap: "10px", paddingRight: "0" }}
-          >
-            تعديل بيانات الطالب
-          </Button>
-          <Button
-            startIcon={<CloseIcon />}
-            variant="contained"
-            sx={{ gap: "10px", paddingRight: "0" }}
-          >
-            اغلاق التفاصيل
-          </Button>
+    <Stack>
+      <BackButton />
+      <MyPaper>
+        {/* header */}
+        <Stack
+          direction={"row"}
+          alignItems={"center"}
+          justifyContent={"space-between"}
+        >
+          <Typography>معلومات طالب</Typography>
+          <Stack direction={"row"} gap={"10px"}>
+            <Link to={"/instructor/editstudent"}>
+              <Button
+                startIcon={<EditIcon />}
+                variant="outlined"
+                sx={{ gap: "10px", paddingRight: "0" }}
+              >
+                تعديل بيانات الطالب
+              </Button>
+            </Link>
+            <Button
+              startIcon={<CloseIcon />}
+              variant="contained"
+              sx={{ gap: "10px", paddingRight: "0" }}
+              onClick={goBack}
+            >
+              اغلاق التفاصيل
+            </Button>
+          </Stack>
         </Stack>
-      </Stack>
-
-      {/* body */}
-      <Stack
-        direction={"row"}
-        gap={"20px"}
-        alignItems={"center"}
-        justifyContent={"flex-start"}
-        sx={{
-          height: "200px",
-          padding: "10px",
-          margin: "20px 0",
-        }}
-      >
-        <img
-          src={img}
-          alt=""
-          width={"180px"}
-          style={{ borderRadius: "10px" }}
-        />
-        <VerDivider />
-
-        <Stack sx={{ height: "100%" }} justifyContent={"space-evenly"}>
-          <KeyNValue title={"الاسم"} value={"محمد نور الدقاق"} />
-          <KeyNValue title={"الرقم الجامعي"} value={"2018016106"} />
-          <KeyNValue title={"الكلية"} value={"الهندسة المعلوماتية"} />
-          <KeyNValue title={"السنة"} value={"الاولى"} />
+        {/* body */}
+        <Stack
+          direction={"row"}
+          gap={"20px"}
+          alignItems={"center"}
+          justifyContent={"flex-start"}
+          sx={{
+            height: "200px",
+            padding: "10px",
+            margin: "20px 0",
+          }}
+        >
+          <img
+            src={img}
+            alt=""
+            width={"180px"}
+            style={{ borderRadius: "10px" }}
+          />
+          <VerDivider />
+          <Stack sx={{ height: "100%" }} justifyContent={"space-evenly"}>
+            <KeyNValue title={"الاسم"} value={"محمد نور الدقاق"} />
+            <KeyNValue title={"الرقم الجامعي"} value={"2018016106"} />
+            <KeyNValue title={"الكلية"} value={"الهندسة المعلوماتية"} />
+            <KeyNValue title={"السنة"} value={"الاولى"} />
+          </Stack>
+          <VerDivider />
+          <Stack sx={{ height: "100%" }} justifyContent={"space-evenly"}>
+            <KeyNValue title={"الحالة"} value={"مسجل"} />
+            <KeyNValue title={"عدد الساعات"} value={"169 / 19"} />
+            <KeyNValue title={"المئوي"} value={"76%"} />
+            <KeyNValue title={"النقطي"} value={"2.2"} />
+          </Stack>
         </Stack>
-        <VerDivider />
-        <Stack sx={{ height: "100%" }} justifyContent={"space-evenly"}>
-          <KeyNValue title={"الحالة"} value={"مسجل"} />
-          <KeyNValue title={"عدد الساعات"} value={"169 / 19"} />
-          <KeyNValue title={"المئوي"} value={"76%"} />
-          <KeyNValue title={"النقطي"} value={"2.2"} />
+        <Stack>
+          <Box sx={{ width: "100%", minHeight: "500px", typography: "body1" }}>
+            <TabContext value={TabsValue}>
+              <Stack justifyContent={"space-between"}>
+                <Stack>
+                  <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                    <TabList
+                      centered
+                      onChange={handleTabsChange}
+                      aria-label="lab API tabs example"
+                    >
+                      <Tab label="علامات الطالب" value="1" />
+                      <Tab label="وظائف الطالب" value="2" />
+                      <Tab label="صفوف الطالب" value="3" />
+                    </TabList>
+                  </Box>
+                  <TabPanel value="1">
+                    <MyTable
+                      editBtn={false}
+                      detailesBtn={false}
+                      data={initialData.rows}
+                      columns={initialData.columns}
+                      onButtonClick={handleButtonClick}
+                    />
+                  </TabPanel>
+                  <TabPanel value="2">
+                    <MyTable
+                      editBtn={false}
+                      detailesBtn={false}
+                      data={initialData.rows}
+                      columns={initialData.columns}
+                      onButtonClick={handleButtonClick}
+                    />
+                  </TabPanel>
+                  <TabPanel value="3">
+                    <MyTable
+                      editBtn={false}
+                      detailesBtn={false}
+                      data={initialData.rows}
+                      columns={initialData.columns}
+                      onButtonClick={handleButtonClick}
+                    />
+                  </TabPanel>
+                </Stack>
+                <Stack>
+                  <Typography>student statues</Typography>
+                </Stack>
+              </Stack>
+            </TabContext>
+          </Box>
         </Stack>
-      </Stack>
-      <Stack>
-        <FormControl sx={{ width: "300px", marginBottom: "20px" }}>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={selectedCourse}
-            label="Age"
-            onChange={handleChange}
-          >
-            {initialData.rows.map((item, index) => (
-              <MenuItem key={index} value={index}>
-                {item.Course_name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <MyTable
-          editBtn={false}
-          detailesBtn={false}
-          data={initialData.rows}
-          columns={initialData.columns}
-          onButtonClick={handleButtonClick}
-        />
-      </Stack>
-    </MyPaper>
+      </MyPaper>
+    </Stack>
   );
 }
 

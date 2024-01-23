@@ -24,20 +24,6 @@ const initialData = {
   columns: ["Full_name", "ID", "Collage", "Year", "Hours"],
   rows: [
     {
-      Full_name: "حميد بزنكو",
-      ID: "2017367743",
-      Collage: "الهندسة المعلوماتية",
-      Year: "السنة الثالثة",
-      Hours: "144",
-    },
-    {
-      Full_name: "حميد بزنكو",
-      ID: "2017367743",
-      Collage: "الهندسة المعلوماتية",
-      Year: "السنة الثالثة",
-      Hours: "144",
-    },
-    {
       Full_name: "علي أحمد",
       ID: "2017456789",
       Collage: "الهندسة المعلوماتية",
@@ -135,7 +121,7 @@ function Students() {
         justifyContent={"space-between"}
       >
         <Typography fontWeight={"bold"}>الطلاب</Typography>
-        <Link to={"profile"}>
+        <Link to={"/admin/addstudent"}>
           <Button variant="contained">اضافة طالب</Button>
         </Link>
       </Stack>
@@ -187,6 +173,8 @@ function Students() {
         columns={data.columns}
         data={filterdData}
         onButtonClick={handleButtonClick}
+        detailesBtn={true}
+        editBtn={true}
       />
     </MyPaper>
   );

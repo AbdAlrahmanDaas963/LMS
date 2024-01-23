@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import MyProTable from "../../../components/MyProTable";
+import MyProTable from "../../components/MyProTable";
 
 const initialData = {
   columns: [

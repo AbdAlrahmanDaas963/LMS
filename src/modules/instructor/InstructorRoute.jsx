@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import InstructorLayout from "./InstructorLayout";
 import Students from "../common/Students";
-import Courses from "./content/Courses";
+import Courses from "../common/Courses";
 import Assignments from "../common/Assignment";
 import Classes from "./content/Classes";
 import Grades from "../../pages/content/Grades";
@@ -13,6 +13,9 @@ import { LoginPage, SignupPage } from "../../pages";
 import CodeCheck from "../../pages/signin/content/CodeCheck";
 import Statistics from "../admin/content/Statistics";
 import StudentProfile from "../common/StudentProfile";
+import EditStudent from "../common/EditStudent";
+import AddStudent from "../common/AddStudent";
+import AssignmentDetailes from "../common/AssignmentDetailes";
 
 function InstructorRoute() {
   return (
@@ -24,6 +27,12 @@ function InstructorRoute() {
         <Route path="assignment" element={<Assignments />} />
         <Route path="classes" element={<Classes />} />
         <Route path="statistics" element={<Statistics />} />
+        <Route path="editstudent" element={<EditStudent />} />
+        <Route path="addstudent" element={<AddStudent />} />
+        <Route
+          path="assignment/assignmentdetailes"
+          element={<AssignmentDetailes />}
+        />
       </Route>
       <Route path="/reg" element={<SigninLayout />}>
         <Route path="/reg/login" element={<LoginPage />} />

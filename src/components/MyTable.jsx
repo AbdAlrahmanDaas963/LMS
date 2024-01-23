@@ -12,14 +12,7 @@ import Paper from "@mui/material/Paper";
 
 import InfoIcon from "@mui/icons-material/Info";
 import EditIcon from "@mui/icons-material/Edit";
-
-const rows = [
-  createData("Frozen yoghurt", 159, "سسس", "حسام", "1234"),
-  createData("Ice cream sandwich", 237, "حميد", "خالد", "5678"),
-  createData("Eclair", 262, "حسام", "زيد", "9908"),
-  createData("Cupcake", 305, "حميد", "نور", "1356"),
-  createData("Gingerbread", 356, "زيد", "حميد", "6432"),
-];
+import DownloadIcon from "@mui/icons-material/Download";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -33,25 +26,18 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  // "&:nth-of-type(odd)": {
-  //   backgroundColor: theme.palette.action.hover,
-  // },
-  // hide last border
   "&:last-child td, &:last-child th": {
     border: 0,
   },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
 function MyTable({
   columns,
   data,
   onButtonClick,
-  detailesBtn = true,
-  editBtn = true,
+  detailesBtn,
+  editBtn,
+  downloadBtn,
 }) {
   const updatedColumns = [...columns, ""];
 
@@ -82,16 +68,18 @@ function MyTable({
             التفاصيل
           </Button>
         ) : null}
-        {/* <Button
-          variant="text"
-          color="primary"
-          style={{ marginLeft: "8px" }}
-          onClick={() => onButtonClick("Button 2", row)}
-          startIcon={<InfoIcon />}
-          sx={{ gap: "10px" }}
-        >
-          التفاصيل
-        </Button> */}
+        {downloadBtn ? (
+          <Button
+            variant="text"
+            color="primary"
+            style={{ marginLeft: "8px" }}
+            onClick={() => onButtonClick("Button 3", row)}
+            startIcon={<DownloadIcon />}
+            sx={{ gap: "10px" }}
+          >
+            تحميل
+          </Button>
+        ) : null}
       </Stack>
     );
 

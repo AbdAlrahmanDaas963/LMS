@@ -2,14 +2,9 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import AdminLayout from "./AdminLayout";
-import Layout from "../../pages/Layout";
-import Courses from "../../pages/content/Courses";
-import CourseDetailes from "../../pages/content/CourseDetailes";
-import Profile from "../../pages/content/Profile";
+import Courses from "../common/Courses";
 import Classes from "../../pages/content/Classes";
-import Grades from "../../pages/content/Grades";
 import Assignment from "../common/Assignment";
-import AssignmentDetailes from "../../pages/content/AssignmentDetailes";
 import SigninLayout from "../../pages/signin/SigninLayout";
 import { LoginPage, SignupPage } from "../../pages";
 import CodeCheck from "../../pages/signin/content/CodeCheck";
@@ -19,6 +14,9 @@ import Ps from "./content/Ps";
 import Roles from "./content/Roles";
 import Statistics from "./content/Statistics";
 import StudentProfile from "../common/StudentProfile";
+import EditStudent from "../common/EditStudent";
+import AddStudent from "../common/AddStudent";
+import AssignmentDetailes from "../common/AssignmentDetailes";
 
 function AdminRoute() {
   return (
@@ -32,6 +30,12 @@ function AdminRoute() {
         <Route path="classes" element={<Classes />} />
         <Route path="statistics" element={<Statistics />} />
         <Route path="roles" element={<Roles />} />
+        <Route path="editstudent" element={<EditStudent />} />
+        <Route path="addstudent" element={<AddStudent />} />
+        <Route
+          path="assignment/assignmentdetailes"
+          element={<AssignmentDetailes />}
+        />
       </Route>
       <Route path="/reg" element={<SigninLayout />}>
         <Route path="/reg/login" element={<LoginPage />} />

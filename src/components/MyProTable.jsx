@@ -32,6 +32,7 @@ function MyProTable({
   onHandleTableButtonClick,
   detailesBtn,
   editBtn,
+  downloadBtn,
 }) {
   const [data, setData] = useState(tableData);
 
@@ -51,6 +52,7 @@ function MyProTable({
   function handleButtonClick(buttonText, rowData) {
     // Handle the button click event here
     console.log(`Button "${buttonText}" clicked for row:`, rowData);
+    onHandleTableButtonClick(buttonText, rowData);
   }
 
   const handleChange = (event) => {
@@ -127,6 +129,7 @@ function MyProTable({
         onButtonClick={handleButtonClick}
         detailesBtn={detailesBtn}
         editBtn={editBtn}
+        downloadBtn={downloadBtn}
       />
     </MyPaper>
   );

@@ -46,7 +46,7 @@ function Profile() {
           <Box marginTop={"15px"}>
             <Typography textAlign={"start"}>الاسم:</Typography>
             <Typography textAlign={"start"} fontSize={"22px"}>
-              محمد عبدالسلام بزنكو
+              محمد عبدالسلام
             </Typography>
           </Box>
           <Box marginTop={"15px"}>

@@ -1,6 +1,9 @@
 import React from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import MyProTable from "../../components/MyProTable";
+import BackButton from "../../components/BackButton";
 
 const initialData = {
   columns: ["Course_name", "Assinment", "Received", "DeadLine"],
@@ -100,10 +103,14 @@ const initialData = {
 };
 
 function Assignment() {
+  const navigate = useNavigate();
+
   const handleTableButtonClick = (buttonText, rowData) => {
     // Handle button click based on the buttonText and rowData
-    console.log(`Button "${buttonText}" clicked for row:`, rowData);
+    console.log(`Button "${buttonText}" clicked for rowwwww:`, rowData);
     // Add your custom logic here
+    if (buttonText === "Button 2") navigate("assignmentdetailes");
+    else console.log("not");
   };
 
   return (

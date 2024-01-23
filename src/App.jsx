@@ -73,9 +73,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/animation" element={<AnimatedPage />} />
-        <Route path="/animation2" element={<AnimatedPage2 />} />
-        <Route path="/landing" element={<Landing />} />
 
         <Route path="/reg" element={<SigninLayout />}>
           <Route path="/reg/login" element={<LoginPage />} />
@@ -110,8 +107,14 @@ function App() {
           }
         />
       </Routes>
+    </BrowserRouter>
+  );
+}
 
-      {/* <Routes>
+export default App;
+
+{
+  /* <Routes>
         <Route path="/reg" element={<SigninLayout />}>
           <Route path="/reg/login" element={<LoginPage />} />
           <Route path="/reg/signup" element={<SignupPage />} />
@@ -156,9 +159,11 @@ function App() {
             }
           />
         </Route>
-      </Routes> */}
+      </Routes> */
+}
 
-      {/* <AppProtectedRoute
+{
+  /* <AppProtectedRoute
         path="/app/student/*"
         element={<StudentRoute />}
         roles={["student"]}
@@ -172,14 +177,18 @@ function App() {
         path="/app/admin/*"
         element={<AdminRoute />}
         roles={["admin"]}
-      /> */}
+      /> */
+}
 
-      {/* <Routes>
+{
+  /* <Routes>
         <Route index element={<LandingPage />} />
         <Route path="/" element={<LandingPage />} />
-      </Routes> */}
+      </Routes> */
+}
 
-      {/* <Routes>
+{
+  /* <Routes>
         <Route path="/app" element={<Layout />}>
           <Route path="/app/courses" element={<Courses />} />
           <Route path="/app/courses/:id" element={<CourseDetailes />} />
@@ -195,9 +204,11 @@ function App() {
           <Route path="/reg/signup" element={<SignupPage />} />
           <Route path="/reg/codecheck" element={<CodeCheck />} />
         </Route>
-      </Routes> */}
+      </Routes> */
+}
 
-      {/* <Routes>
+{
+  /* <Routes>
         <Route index element={<LandingPage />} />
         <Route element={<ProtectedRoute isAllowed={!!user} />}>
           <Route path="/home" element={<HomePage />} />
@@ -235,13 +246,8 @@ function App() {
             }
           />
         </Route>
-      </Routes> */}
-    </BrowserRouter>
-  );
+      </Routes> */
 }
-
-export default App;
-
 {
   /* !!!  */
 }

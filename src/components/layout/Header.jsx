@@ -11,7 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 function Header({ headerData, handleClick }) {
   const data = {
-    name: "محمد بزنكو",
+    name: "محمد عبدالسلام",
     role: "2016736273",
     notifications: ["one noti", "second one", "3rd woeoew", "the last one"],
   };

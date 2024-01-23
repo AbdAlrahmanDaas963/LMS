@@ -139,7 +139,21 @@ const form = (props) => {
               alignItems={"center"}
               justifyContent={"center"}
             >
-              <Link to={"/reg/codecheck"}>
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{
+                  backgroundColor: theme.palette.blue.main,
+                  width: "350px",
+                  height: "50px",
+                  borderRadius: "4px",
+                  marginTop: "10px",
+                }}
+                disabled={isSubmitting}
+              >
+                تسجيل حساب
+              </Button>
+              {/* <Link to={"/reg/codecheck"}>
                 <Button
                   type="submit"
                   variant="contained"
@@ -154,7 +168,7 @@ const form = (props) => {
                 >
                   تسجيل حساب
                 </Button>
-              </Link>
+              </Link> */}
               {/* <Button color="secondary" onClick={handleReset}>
                   CLEAR
                 </Button> */}
