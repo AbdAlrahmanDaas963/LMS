@@ -38,6 +38,7 @@ import AnimatedPage from "./pages/AnimatedPage";
 import AnimatedPage2 from "./pages/AnimatedPage2";
 import Landing from "./pages/Landing/Landing";
 import NotFound from "./pages/NotFound";
+import ComingSoon from "./modules/common/ComingSoon";
 
 const PrivateRoute = ({ element, allowedRoles }) => {
   const { isStudent, isAdmin, isInstructor } = useAuth();
@@ -107,6 +108,8 @@ function App() {
             />
           }
         />
+        <Route path="/soon" element={<ComingSoon />} />
+
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

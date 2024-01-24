@@ -27,10 +27,10 @@ function AdminRoute() {
         <Route path="students/profile" element={<StudentProfile />} />
         <Route path="courses" element={<Courses />} />
         <Route path="assignment" element={<Assignment />} />
-        <Route path="ps" element={<ComingSoon />} />
-        <Route path="classes" element={<ComingSoon />} />
+        <Route path="ps" element={<Ps />} />
+        <Route path="classes" element={<Classes />} />
         <Route path="statistics" element={<Statistics />} />
-        <Route path="roles" element={<ComingSoon />} />
+        <Route path="roles" element={<Roles />} />
         <Route path="editstudent" element={<EditStudent />} />
         <Route path="addstudent" element={<AddStudent />} />
         <Route

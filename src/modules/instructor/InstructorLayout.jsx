@@ -26,12 +26,12 @@ const items = [
   { title: "الطلاب", path: "students" },
   { title: "الكورسات", path: "courses" },
   { title: "الوظائف", path: "assignment" },
-  { title: "صفوف", path: "classes" },
+  { title: "صفوف", path: "/soon" },
   { title: "الاحصائيات", path: "statistics" },
 ];
 
 function InstructorLayout() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const handleClick = () => {
     setOpen(!open);

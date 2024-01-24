@@ -16,7 +16,17 @@ function ComingSoon() {
     navigate(-1);
   };
   return (
-    <MyPaper>
+    <Stack
+      sx={{
+        backgroundColor: "#fff",
+        width: "100vw",
+        height: "100vh",
+        minWidth: "300px",
+        minHeight: "500px",
+      }}
+      alignItems={"center"}
+      justifyContent={"center"}
+    >
       <Typography
         fontWeight={"bold"}
         sx={{ color: "var(--blue)", fontSize: "70px" }}
@@ -43,7 +53,7 @@ function ComingSoon() {
           عودة
         </Button>
       </Stack>
-    </MyPaper>
+    </Stack>
   );
 }
 

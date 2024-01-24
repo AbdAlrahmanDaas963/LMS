@@ -28,7 +28,7 @@ function InstructorRoute() {
         <Route path="courses" element={<Courses />} />
         <Route path="courses/coursedetailes" element={<CourseDetailes />} />
         <Route path="assignment" element={<Assignments />} />
-        <Route path="classes" element={<ComingSoon />} />
+        <Route path="classes" element={<Classes />} />
         <Route path="statistics" element={<Statistics />} />
         <Route path="editstudent" element={<EditStudent />} />
         <Route path="addstudent" element={<AddStudent />} />
