@@ -57,7 +57,10 @@ const Sidebar = ({ open, items }) => {
           alignItems={"center"}
           justifyContent={"center"}
         >
-          <LinksBox variants={LinkBoxVariants}>
+          <LinksBox
+            variants={LinkBoxVariants}
+            style={{ alignItems: "flex-start" }}
+          >
             {items.map((item, index) => (
               <Link
                 key={index}
@@ -78,7 +81,6 @@ const Sidebar = ({ open, items }) => {
           <Link to={"reg/login"} style={{ color: "var(--white)" }}>
             <Typography>تسجيل خروج</Typography>
           </Link>
-          <Typography>x</Typography>
         </Stack>
       </Stack>
     </SidebarBox>

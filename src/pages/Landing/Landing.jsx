@@ -14,6 +14,11 @@ import Section2 from "./Section2";
 import Section3 from "./Section3";
 import Section4 from "./Section4";
 import Section5 from "./Section5";
+import TheSection from "./TheSection";
+
+import students from "../../assets/svg/landing/students.svg";
+import teachers from "../../assets/svg/landing/teachers.svg";
+import courses from "../../assets/svg/landing/courses.svg";
 
 function Landing() {
   const handleButtonClick = () => {
@@ -34,7 +39,12 @@ function Landing() {
   };
   return (
     <Stack
-      sx={{ backgroundColor: "#fff", position: "relative", paddingTop: "70px" }}
+      sx={{
+        backgroundColor: "#fff",
+        position: "relative",
+        paddingTop: "70px",
+        overflowX: "hidden",
+      }}
     >
       {/* <AnimHeader /> */}
       {/* <MyAppBar /> */}
@@ -52,9 +62,34 @@ function Landing() {
       </motion.div>
 
       <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section4 />
+      <TheSection
+        img={students}
+        title={"1140+ طالب يستمتعون بميزات لا تقدر بثمن"}
+        desc={
+          "نحن هنا لجعل تجربتكم التعليمية ممتعة وناجحة! انضموا إلينا اليوم واستعدوا لاستكشاف عالم المعرفة بأسلوب مرح ومبتكر"
+        }
+        num={2}
+      />
+      <TheSection
+        img={teachers}
+        reverse={true}
+        title={"1140+ طالب يستمتعون بميزات لا تقدر بثمن"}
+        desc={
+          "نحن هنا لجعل تجربتكم التعليمية ممتعة وناجحة! انضموا إلينا اليوم واستعدوا لاستكشاف عالم المعرفة بأسلوب مرح ومبتكر"
+        }
+        num={3}
+      />
+      <TheSection
+        img={courses}
+        title={"1140+ طالب يستمتعون بميزات لا تقدر بثمن"}
+        desc={
+          "نحن هنا لجعل تجربتكم التعليمية ممتعة وناجحة! انضموا إلينا اليوم واستعدوا لاستكشاف عالم المعرفة بأسلوب مرح ومبتكر"
+        }
+        num={4}
+      />
+      {/* <Section2 /> */}
+      {/* <Section3 /> */}
+      {/* <Section4 /> */}
       <Section5 />
     </Stack>
   );

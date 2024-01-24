@@ -7,6 +7,7 @@ import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 
 import { InboxOutlined } from "@ant-design/icons";
 import { message, Upload } from "antd";
+import BackButton from "../../../components/BackButton";
 
 const { Dragger } = Upload;
 const props = {
@@ -42,82 +43,82 @@ function AssignmentDetailes() {
   // console.log("detailes :>> ", detailes);
 
   return (
-    <Stack
-      sx={{
-        backgroundColor: "#fff",
-        borderRadius: "15px",
-        padding: "50px",
-        width: "100%",
-        minHeight: "50vh",
-        boxShadow:
-          "0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 1px 0px rgba(0, 0, 0, 0.20)",
-      }}
-      justifyContent={"space-between"}
-    >
+    <Stack>
+      <BackButton />
       <Stack
-        direction={"row"}
-        justifyContent={"space-between"}
-        sx={{ marginBottom: "30px" }}
-      >
-        <Stack alignItems={"flex-start"}>
-          <Typography fontWeight={"bold"}>هندسة البرمجيات</Typography>
-          <Typography sx={{ color: "var(--whitesecondary)" }}>
-            الوظيفة 1
-          </Typography>
-        </Stack>
-        <Stack direction={"row"} gap={"10px"}>
-          <Typography sx={{ color: "var(--whitesecondary)" }}>
-            حتى 26/1/2024
-          </Typography>
-          <AccessAlarmIcon fontSize="small" />
-        </Stack>
-      </Stack>
-
-      <Stack justifyContent={"flex-start"} alignItems={"flex-start"}>
-        <Typography fontWeight={"bold"}>ملاحظات:</Typography>
-        <Typography sx={{ color: "var(--whitesecondary)" }}>
-          لا يوجد ملاحظات
-        </Typography>
-      </Stack>
-      <Stack alignItems={"center"}>
-        <Button
-          variant="outlined"
-          sx={{
-            gap: "20px",
-            marginTop: "50px",
-            padding: "12px",
-          }}
-        >
-          <PictureAsPdfIcon fontSize="large" />
-          <Typography>تنزيل pdfFile</Typography>
-        </Button>
-      </Stack>
-
-      <Divider
         sx={{
-          height: "2px",
-          width: "95%",
-          backgroundColor: "black",
-          marginTop: "50px",
+          backgroundColor: "#fff",
+          borderRadius: "15px",
+          padding: "50px",
+          width: "100%",
+          minHeight: "50vh",
+          boxShadow:
+            "0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 1px 0px rgba(0, 0, 0, 0.20)",
         }}
-      />
-
-      <Stack alignItems={"center"} sx={{ marginTop: "50px" }}>
-        <Dragger
-          {...props}
-          style={{ backgroundColor: "var(--white)", width: "370px" }}
+        justifyContent={"space-between"}
+      >
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          sx={{ marginBottom: "30px" }}
         >
-          <p className="ant-upload-drag-icon">
-            <InboxOutlined />
-          </p>
-          <p className="ant-upload-text">
-            اضغط لاختيار ملف او قم باسقاط الملف هنا
-          </p>
-          <p className="ant-upload-hint">
-            Support for a single or bulk upload. Strictly prohibited from
-            uploading company data or other banned files.
-          </p>
-        </Dragger>
+          <Stack alignItems={"flex-start"}>
+            <Typography fontWeight={"bold"}>هندسة البرمجيات</Typography>
+            <Typography sx={{ color: "var(--whitesecondary)" }}>
+              الوظيفة 1
+            </Typography>
+          </Stack>
+          <Stack direction={"row"} gap={"10px"}>
+            <Typography sx={{ color: "var(--whitesecondary)" }}>
+              حتى 26/1/2024
+            </Typography>
+            <AccessAlarmIcon fontSize="small" />
+          </Stack>
+        </Stack>
+        <Stack justifyContent={"flex-start"} alignItems={"flex-start"}>
+          <Typography fontWeight={"bold"}>ملاحظات:</Typography>
+          <Typography sx={{ color: "var(--whitesecondary)" }}>
+            لا يوجد ملاحظات
+          </Typography>
+        </Stack>
+        <Stack alignItems={"center"}>
+          <Button
+            variant="outlined"
+            sx={{
+              gap: "20px",
+              marginTop: "50px",
+              padding: "12px",
+            }}
+          >
+            <PictureAsPdfIcon fontSize="large" />
+            <Typography>تنزيل pdfFile</Typography>
+          </Button>
+        </Stack>
+        <Divider
+          sx={{
+            height: "2px",
+            width: "95%",
+            backgroundColor: "black",
+            marginTop: "50px",
+          }}
+        />
+        <Stack alignItems={"center"} sx={{ marginTop: "50px" }}>
+          <Dragger
+            {...props}
+            style={{ backgroundColor: "var(--white)", width: "370px" }}
+          >
+            <p className="ant-upload-drag-icon">
+              <InboxOutlined />
+            </p>
+            <p className="ant-upload-text">
+              اضغط لاختيار ملف او قم باسقاط الملف هنا
+            </p>
+            <p className="ant-upload-hint">
+              Support for a single or bulk upload. Strictly prohibited from
+              uploading company data or other banned files.
+            </p>
+          </Dragger>
+        </Stack>
       </Stack>
     </Stack>
   );

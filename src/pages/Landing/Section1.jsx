@@ -4,22 +4,11 @@ import { Stack, Typography, Box, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import img from "../../assets/books.jpg";
-import gif from "../../assets/books.gif";
+
+import useResponsiveLayout from "../../utils/useResponsiveLayout";
 
 function Section1() {
-  const [showGif, setShowGif] = useState(true);
-
-  useEffect(() => {
-    // After 1 second, set showGif to false
-    const timeoutId = setTimeout(() => {
-      setShowGif(false);
-    }, 1500);
-
-    return () => {
-      // Cleanup the timeout to avoid memory leaks
-      clearTimeout(timeoutId);
-    };
-  }, []); // The empty dependency array ensures this effect runs only once after the initial render
+  const isSmallScreen = useResponsiveLayout();
 
   return (
     <Stack
@@ -36,7 +25,7 @@ function Section1() {
       <Typography
         sx={{
           color: "var(--whitesecondary)",
-          maxWidth: "740px",
+          maxWidth: isSmallScreen ? "350px" : "740px",
         }}
       >
         نجمع بين التكنولوجيا الحديثة والمحتوى الأكاديمي المميز لنوفر لك تجربة
@@ -46,16 +35,8 @@ function Section1() {
       </Typography>
       <Box>
         <img src={img} alt="" width={"400px"} />
-
-        {/* {showGif ? (
-          // Display the GIF for the first second
-          <img src={gif} alt="" width={"400px"} />
-        ) : (
-          // After 1 second, switch to a different image
-          <img src={img} alt="" width={"400px"} />
-        )} */}
       </Box>
-      <Stack direction={"row"} gap={"8px"}>
+      <Stack direction={isSmallScreen ? "column" : "row"} gap={"8px"}>
         <Link>
           <Button
             sx={{ width: "250px", borderRadius: "4px" }}

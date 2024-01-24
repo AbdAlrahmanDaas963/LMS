@@ -39,12 +39,12 @@ function StudentRoute() {
         <Route path="coursedetailesunreg" element={<CourseDetailesUnReg />} />
 
         <Route path="profile" element={<Profile />} />
-        <Route path="classes" element={<ComingSoon />} />
+        <Route path="classes" element={<Classes />} />
         <Route path="grades" element={<Grades />} />
         <Route path="quizzes" element={<Quizzes />} />
         <Route path="resourses" element={<Resourses />} />
-        <Route path="calendar" element={<ComingSoon />} />
-        <Route path="scheduler" element={<ComingSoon />} />
+        <Route path="calendar" element={<Calendar />} />
+        <Route path="scheduler" element={<Scheduler />} />
 
         <Route path="assignment" element={<Assignment />} />
         <Route path="assignment/:id" element={<AssignmentDetailes />} />

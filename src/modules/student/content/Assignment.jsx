@@ -100,7 +100,9 @@ function Assignment() {
               </Stack>
               <Stack direction={"row"} gap={"20px"}>
                 <Typography>تاريخ اخر تسليم: 12\3\2024</Typography>
-                <Typography color={"#1976D2"}>detailes</Typography>
+                <Link to={"assignmentdetailes"}>
+                  <Typography color={"#1976D2"}>detailes</Typography>
+                </Link>
               </Stack>
             </Stack>
             <Stack
@@ -115,7 +117,9 @@ function Assignment() {
               </Stack>
               <Stack direction={"row"} gap={"20px"}>
                 <Typography>تاريخ اخر تسليم: 12\3\2024</Typography>
-                <Typography color={"#1976D2"}>detailes</Typography>
+                <Link to={"assignmentdetailes"}>
+                  <Typography color={"#1976D2"}>detailes</Typography>
+                </Link>
               </Stack>
             </Stack>
           </AccordionDetails>
@@ -141,7 +145,9 @@ function Assignment() {
               </Stack>
               <Stack direction={"row"} gap={"20px"}>
                 <Typography>تاريخ اخر تسليم: 12\3\2024</Typography>
-                <Typography color={"#1976D2"}>detailes</Typography>
+                <Link to={"assignmentdetailes"}>
+                  <Typography color={"#1976D2"}>detailes</Typography>
+                </Link>
               </Stack>
             </Stack>
           </AccordionDetails>

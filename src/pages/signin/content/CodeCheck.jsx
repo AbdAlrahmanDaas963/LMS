@@ -104,7 +104,7 @@ function CodeCheck() {
               value={value}
               onChange={handleChange(index)}
               inputProps={{
-                maxLength: 1, // Restrict input to a single digit
+                maxLength: 1,
               }}
               inputRef={inputRefs[index]}
             />
@@ -112,7 +112,7 @@ function CodeCheck() {
         </Stack>
       </Stack>
       <Stack justifyContent={"center"} direction={"row"}>
-        <Link to={"/app/student"}>
+        <Link to={"/student"}>
           <Button
             type="submit"
             variant="contained"

@@ -22,10 +22,10 @@ const Layout = () => {
     { title: "الدروس", path: "courses" },
     { title: "الوظائف", path: "assignment" },
     { title: "الدرجات", path: "grades" },
-    { title: "التقويم", path: "calendar" },
+    { title: "التقويم", path: "/soon" },
     { title: "الاختبارات", path: "quizzes" },
     { title: "المصادر", path: "resourses" },
-    { title: "scheduler", path: "scheduler" },
+    { title: "scheduler", path: "/soon" },
   ];
   return (
     <Stack

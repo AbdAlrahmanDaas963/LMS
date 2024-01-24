@@ -18,6 +18,7 @@ import EditStudent from "../common/EditStudent";
 import AddStudent from "../common/AddStudent";
 import AssignmentDetailes from "../common/AssignmentDetailes";
 import ComingSoon from "../common/ComingSoon";
+import CourseDetailes from "../common/CourseDetailes";
 
 function AdminRoute() {
   return (
@@ -26,6 +27,7 @@ function AdminRoute() {
         <Route path="students" element={<Students />} />
         <Route path="students/profile" element={<StudentProfile />} />
         <Route path="courses" element={<Courses />} />
+        <Route path="courses/coursedetailes" element={<CourseDetailes />} />
         <Route path="assignment" element={<Assignment />} />
         <Route path="ps" element={<Ps />} />
         <Route path="classes" element={<Classes />} />
